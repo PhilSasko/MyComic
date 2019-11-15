@@ -3,3 +3,12 @@
 ################################################################################
 
 /.vs/MyComic
+/_images
+/packages
+/MyComic.Domain/obj/Debug/netstandard2.0/MyComic.Domain.pdb
+/MyComic.Domain/obj/Debug/netstandard2.0/MyComic.Domain.dll
+/MyComic.Domain/obj/Debug/netstandard2.0/MyComic.Domain.csproj.FileListAbsolute.txt
+*.cache
+/MyComic.Domain/bin/Debug/netstandard2.0
+*.dll
+

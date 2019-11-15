@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace MyComic.Domain
+namespace MyComic.Domain.Comic
 {
-    public class Page
+    public class ComicPage
     {
         public int IssueId { get; set; }
         public int PageNumber { get; set; }
