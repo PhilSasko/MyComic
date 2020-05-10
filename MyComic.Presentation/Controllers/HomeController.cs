@@ -25,28 +25,27 @@ namespace MyComic.Presentation.Controllers
 
         public IActionResult Index(int id = 0)
         {
-            if (0 < id)
+            ComicPage comicPage = 0 < id
+                ? _comicPageBuilder.BuildeComicPageFromPageNumber(id)
+                : _defaultComicPageRetriever.RetrieveDefaultComicPage();
+
+            ComicPageViewModel comicPageViewModel = new ComicPageViewModel()
             {
-                ComicPage comicPage = _comicPageBuilder.BuildeComicPageFromPageNumber(id);
-                ComicPageViewModel comicPageViewModel = new ComicPageViewModel()
-                {
-                    ComicPage = comicPage
-                };
-                return View(comicPageViewModel);
-            }
-            else
-            {
-                ComicPageViewModel comicPageViewModel = new ComicPageViewModel()
-                {
-                    ComicPage = _defaultComicPageRetriever.RetrieveDefaultComicPage()
-                };
-                return View(comicPageViewModel);
-            }
-        }
+                ComicPage = comicPage
+            };
+
+            return View(comicPageViewModel);
+    }
 
         public IActionResult NextPage(int pageNumber)
         {
             pageNumber++;
+            return RedirectToAction("Index", new { Id = pageNumber });
+        }
+
+        public IActionResult PreviousPage(int pageNumber)
+        {
+            pageNumber--;
             return RedirectToAction("Index", new { Id = pageNumber });
         }
     }
