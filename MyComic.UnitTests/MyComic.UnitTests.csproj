@@ -65,9 +65,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyComic.Domain\MyComic.Domain.csproj">
-      <Project>{96d7bd64-dbcc-4007-9385-181f0c90ad0e}</Project>
-      <Name>MyComic.Domain</Name>
+    <ProjectReference Include="..\MyComic.PageNavigation\MyComic.PageNavigation.csproj">
+      <Project>{7D443A34-6148-4EE1-8DEF-F60BB41D8E79}</Project>
+      <Name>MyComic.PageNavigation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
