@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Files.Behavior", "MyComic.Domain\MyComic.Files.Behavior.csproj", "{96D7BD64-DBCC-4007-9385-181F0C90AD0E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Presentation", "MyComic.Presentation\MyComic.Presentation.csproj", "{DB3F0AA4-E785-4A19-BED2-38463A049FDA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyComic.UnitTests", "MyComic.UnitTests\MyComic.UnitTests.csproj", "{93D446D9-0E05-45DA-9480-3D669AFAA250}"
@@ -13,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Presentation.Models
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.PageNavigation", "MyComic.PageNavigation\MyComic.PageNavigation.csproj", "{7D443A34-6148-4EE1-8DEF-F60BB41D8E79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyComic.Entities", "MyComic.Entities\MyComic.Entities.csproj", "{492CAD0A-9E34-4D1C-AD74-23F41D7C6AA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Entities", "MyComic.Entities\MyComic.Entities.csproj", "{492CAD0A-9E34-4D1C-AD74-23F41D7C6AA4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Files.Behavior", "MyComic.Files.Behavior\MyComic.Files.Behavior.csproj", "{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{96D7BD64-DBCC-4007-9385-181F0C90AD0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96D7BD64-DBCC-4007-9385-181F0C90AD0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96D7BD64-DBCC-4007-9385-181F0C90AD0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96D7BD64-DBCC-4007-9385-181F0C90AD0E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DB3F0AA4-E785-4A19-BED2-38463A049FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DB3F0AA4-E785-4A19-BED2-38463A049FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB3F0AA4-E785-4A19-BED2-38463A049FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{492CAD0A-9E34-4D1C-AD74-23F41D7C6AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{492CAD0A-9E34-4D1C-AD74-23F41D7C6AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{492CAD0A-9E34-4D1C-AD74-23F41D7C6AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
