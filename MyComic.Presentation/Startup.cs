@@ -12,6 +12,7 @@ using MyComic.Presentation.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyComic.PageNavigation;
 
 namespace MyComic.Presentation
 {
@@ -34,6 +35,9 @@ namespace MyComic.Presentation
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddTransient<IComicPageNameResolver, ComicPageNameResolver>();
+            services.AddTransient<IComicPageBuilder, ComicPageBuilder>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,8 +1,9 @@
-﻿@{
+﻿@model MyComic.Presentation.Models.ComicPageViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="acomic-image-content">
+    <img src="@Url.Content($"~/images/{Model.ComicPage.FileName}")" id="main-comic-image" class="img-fluid" alt="Responsive image">
+    @Html.ActionLink(">", "NextPage", "Home", new { PageNumber = Model.ComicPage.PageNumber })
 </div>

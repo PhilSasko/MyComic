@@ -5,6 +5,14 @@
     <UserSecretsId>aspnet-MyComic.Presentation-A1E4CC78-7A6B-48CD-A10A-2EC1CCE254DD</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\images\cover.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\cover.jpg" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
@@ -12,6 +20,12 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyComic.PageNavigation\MyComic.PageNavigation.csproj" />
+    <ProjectReference Include="..\MyComic.Presentation.Models\MyComic.Presentation.Models.csproj" />
   </ItemGroup>
 
 </Project>
