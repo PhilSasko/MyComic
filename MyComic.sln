@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Entities", "MyComic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Files.Behavior", "MyComic.Files.Behavior\MyComic.Files.Behavior.csproj", "{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyComic.PageNavigation.Tests", "MyComic.PageNavigation.Tests\MyComic.PageNavigation.Tests.csproj", "{96D012A8-43C3-46D5-A723-53D3390B80A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D012A8-43C3-46D5-A723-53D3390B80A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D012A8-43C3-46D5-A723-53D3390B80A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D012A8-43C3-46D5-A723-53D3390B80A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D012A8-43C3-46D5-A723-53D3390B80A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
