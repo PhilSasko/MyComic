@@ -11,26 +11,34 @@ namespace MyComic.Presentation.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IComicPageBuilder _comicPageBuilder;
+        private readonly IDefaultComicPageRetriever _defaultComicPageRetriever;
 
-        public HomeController(ILogger<HomeController> logger, IComicPageBuilder comicPageBuilder)
+        public HomeController
+            ( ILogger<HomeController> logger
+            , IComicPageBuilder comicPageBuilder
+            , IDefaultComicPageRetriever defaultComicPageRetriever)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _comicPageBuilder = comicPageBuilder ?? throw new ArgumentNullException(nameof(comicPageBuilder));
+            _defaultComicPageRetriever = defaultComicPageRetriever ?? throw new ArgumentNullException(nameof(defaultComicPageRetriever));
         }
-
 
         public IActionResult Index(int id = 0)
         {
-            if (id == 0)
-            {
-                return GetDefaultPage();
-            }
-            else
+            if (0 < id)
             {
                 ComicPage comicPage = _comicPageBuilder.BuildeComicPageFromPageNumber(id);
                 ComicPageViewModel comicPageViewModel = new ComicPageViewModel()
                 {
                     ComicPage = comicPage
+                };
+                return View(comicPageViewModel);
+            }
+            else
+            {
+                ComicPageViewModel comicPageViewModel = new ComicPageViewModel()
+                {
+                    ComicPage = _defaultComicPageRetriever.RetrieveDefaultComicPage()
                 };
                 return View(comicPageViewModel);
             }
@@ -40,20 +48,6 @@ namespace MyComic.Presentation.Controllers
         {
             pageNumber++;
             return RedirectToAction("Index", new { Id = pageNumber });
-        }
-
-        // TODO: extract logic to a new class
-        private IActionResult GetDefaultPage()
-        {
-            ComicPageViewModel defaultComicPageViewModel = new ComicPageViewModel()
-            {
-                ComicPage = new ComicPage() 
-                { 
-                    PageNumber = 0,
-                    FileName = "cover.jpg"
-                }
-            };
-            return View(defaultComicPageViewModel);
         }
     }
 }
