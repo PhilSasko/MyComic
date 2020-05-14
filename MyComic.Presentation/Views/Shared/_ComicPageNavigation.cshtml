@@ -1,0 +1,5 @@
+﻿@model MyComic.Entities.Comic.ComicPage
+<div class="comic-page-navigation-div">
+    <a asp-controller="Home" asp-action="PreviousPage" asp-route-pageNumber="@Model.PageNumber"><</a>
+    <a asp-controller="Home" asp-action="NextPage" asp-route-pageNumber="@Model.PageNumber">></a>
+</div>
