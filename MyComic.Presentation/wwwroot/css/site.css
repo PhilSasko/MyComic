@@ -81,10 +81,45 @@ body {
 
 #main-comic-image {
     margin: 0 auto;
-    padding: 50px;
-    background: blue;
+    padding: 20px;
+
+    /*background: blue;*/
 }
 
 body {
     background: #dfcee9;
+}
+
+.comic-page-navigation-div {
+    /*background: #00ff00;*/
+    display: block;
+    max-width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px;
+}
+
+.page-navigation-button {
+    display: inline-block;
+    /*background: #ffff00;*/
+    width: 45px;
+    height: 45px;
+    border: solid;
+    border-radius: 30px;
+    border-color: #b970db;
+    border-width: 2px;
+}
+    .page-navigation-button:hover {
+        border-color: #f4dbff;
+    }
+
+    .page-navigation-button a {
+        color: #b970db;
+        text-decoration: none;
+    }
+
+#acomic-image-content {
+    /*background: #ff0000;*/
+    width: 800px;
+    margin: 0 auto;
 }

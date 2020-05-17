@@ -3,8 +3,8 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div id="acomic-image-content">
-    <partial name="~/Views/Shared/_ComicPageNavigation.cshtml" model="Model.ComicPage"/>
-    <img src="@Url.Content($"~/images/{Model.ComicPage.FileName}")" id="main-comic-image" class="img-fluid" alt="Responsive image">
-    <partial name="~/Views/Shared/_ComicPageNavigation.cshtml" model="Model.ComicPage"/>
-</div>
+    <div id="acomic-image-content">
+        <partial name="~/Views/Shared/_ComicPageNavigation.cshtml" model="Model.ComicPage" />
+        <partial name="~/Views/Shared/_ComicPageDisplay.cshtml" model="Model.ComicPage" />
+        <partial name="~/Views/Shared/_ComicPageNavigation.cshtml" model="Model.ComicPage" />
+    </div>
