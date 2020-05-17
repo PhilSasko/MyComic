@@ -1,10 +1,10 @@
 ﻿@model MyComic.Entities.Comic.ComicPage
 
 <div class="comic-page-navigation-div">
-    <div class="page-navigation-button">
-        <a asp-controller="Home" asp-action="PreviousPage" asp-route-pageNumber="@Model.PageNumber"><</a>
-    </div>
-    <div class="page-navigation-button">
-        <a asp-controller="Home" asp-action="NextPage" asp-route-pageNumber="@Model.PageNumber">></a>
-    </div>
+    <a class="page-navigation-button" asp-controller="Home" asp-action="PreviousPage" asp-route-pageNumber="@Model.PageNumber">
+        <div class="page-navigation-button-div page-navigation-button-adjust-left"><</div>
+    </a>
+    <a class="page-navigation-button" asp-controller="Home" asp-action="NextPage" asp-route-pageNumber="@Model.PageNumber">
+        <div class="page-navigation-button-div page-navigation-button-adjust-right">></div>
+    </a>
 </div>
