@@ -8,5 +8,6 @@ namespace MyComic.Entities.Comic
         public int PageNumber { get; set; }
         public string FileName { get; set; }
         public string Description { get; set; }
+        public ComicIssue ComicIssue { get; set; }
     }
 }

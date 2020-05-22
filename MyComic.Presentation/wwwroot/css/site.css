@@ -70,20 +70,15 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-#main-comic-image-content {
-    display: block;
-    /*margin: 0 auto;*/
-    /*padding: 30px;*/
-    color: blue;
-    background: red;
-    width: 100%;
-}
 
 #main-comic-image {
     margin: 0 auto;
     padding: 20px;
+}
 
-    /*background: blue;*/
+#main-comic-image-content {
+    width: 800px;
+    margin: 0 auto;
 }
 
 body {
@@ -96,7 +91,7 @@ body {
 
 .comic-page-navigation-div {
     display: block;
-    max-width: 100px;
+    max-width: 300px;
     margin: 0 auto;
     text-align: center;
     font-size: 30px;
@@ -104,14 +99,15 @@ body {
 
 a.page-navigation-button {
     display: inline-block;
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
     border: solid;
     border-radius: 30px;
     border-color: #b970db;
     border-width: 2px;
     color: #b970db;
     position: relative;
+    letter-spacing: -2px;
 }
 
     a.page-navigation-button:hover {
@@ -122,27 +118,22 @@ a.page-navigation-button {
 
 .page-navigation-button-div {
     position: relative;
-    top: -5px;
+    top: 0px;
     display: inline-block;
     width: 40px;
     padding-top: 0px;
 }
 
-.page-navigation-button-adjust-left {
+/* Might need to uncomment (and add to navigation div inside anchor) if width and height of buttons change */
+/*.page-navigation-button-adjust-left {
     position: relative;
-    left: -2px;
+    left: -1px;
 }
-
 .page-navigation-button-adjust-right {
     position: relative;
-    right: -2px;
-}
+    right: -1px;
+}*/
 
 /* ========================= */
 /* End Comic Page Navigation */
 /* ========================= */
-
-#acomic-image-content {
-    width: 800px;
-    margin: 0 auto;
-}
