@@ -4,6 +4,7 @@
 
 /.vs/MyComic
 /_images
+/images
 /packages
 /MyComic.Domain/obj/Debug/netstandard2.0/MyComic.Domain.pdb
 /MyComic.Domain/obj/Debug/netstandard2.0/MyComic.Domain.dll
