@@ -5,16 +5,10 @@ using System.Text;
 
 namespace MyComic.Entities.Comic
 {
-    public interface IComicEnumerable : IEnumerable<ComicPage> { }
-
-    public class ComicEnumerable : IComicEnumerable
+    public class ComicIssue
     {
-        private IEnumerable<ComicPage> _comicPages;
-        public IEnumerator<ComicPage> GetEnumerator() => _comicPages.GetEnumerator();
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-    }
-
-    public class ComicIssue : ComicEnumerable
-    {
+        public int IssueNumber { get; set; }
+        public int NumberOfPages { get; set; }
+        public IEnumerable<ComicPage> Pages { get; set; }
     }
 }
