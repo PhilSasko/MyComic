@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Logging;
 using MyComic.Entities.Comic;
 using MyComic.PageNavigation;
@@ -15,6 +17,8 @@ namespace MyComic.Presentation.Controllers
         private readonly INextComicPageNavigator _nextComicPageNavigator;
         private readonly IPreviousComicPageNavigator _previousComicPageNavigator;
         private readonly ILastComicPageNavigator _lastComicPageNavigator;
+
+        const int ComonNumberOfPages = 32;   // TODO: temporary workaround. Remove when restructure of page navigation.
 
         public HomeController
             ( ILogger<HomeController> logger
@@ -45,7 +49,7 @@ namespace MyComic.Presentation.Controllers
                 : _defaultComicPageRetriever.RetrieveDefaultComicPage();
 
             // TODO: this is a workaround until I restructure things
-            ComicIssue comicIssue = new ComicIssue() { NumberOfPages = 32 };
+            ComicIssue comicIssue = new ComicIssue() { NumberOfPages = ComonNumberOfPages };
             comicPage.ComicIssue = comicIssue;
 
             ComicPageViewModel comicPageViewModel = new ComicPageViewModel()
@@ -61,7 +65,7 @@ namespace MyComic.Presentation.Controllers
             ComicPage currentComicPage = _comicPageBuilder.BuildeComicPageFromPageNumber(pageNumber);
 
             // TODO: this is a workaround until I restructure things
-            ComicIssue comicIssue = new ComicIssue() { NumberOfPages = 32 };
+            ComicIssue comicIssue = new ComicIssue() { NumberOfPages = ComonNumberOfPages };
             currentComicPage.ComicIssue = comicIssue;
 
             ComicPage lastComicPage = _lastComicPageNavigator.GetLastComicPage(currentComicPage);
