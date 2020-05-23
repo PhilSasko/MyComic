@@ -1,5 +1,6 @@
 ﻿using MyComic.Entities.Comic;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,17 +12,27 @@ namespace MyComic.PageNavigation.Tests
     {
         private IComicPageBuilder _comicPageBuilder;
 
-        [Test]
-        public void LastComicPage_WhenFirstComicPage_GetsLastPage()
+        [TestCase(32, 32, "32.jpg")]
+        [TestCase(10, 10, "10.jpg")]
+        [TestCase(9, 9, "09.jpg")]
+        [TestCase(1, 1, "01.jpg")]
+        public void LastComicPage_WhenFirstComicPage_GetsLastPage(int numberOfPages, int lastPageNumber, string lastPageFileName)
         {
-            ILastComicPageNavigator lastComicPageNavigator = new LastComicPageNavigator();
+            // Should we be using the ServiceLocator (antis) pattern in a case like this?
+            IComicPageNameResolver comicPageNameResolver = new ComicPageNameResolver();
+            IComicPageBuilder comicPageBuilder = new ComicPageBuilder(comicPageNameResolver);
+            ILastComicPageNumberResolver lastComicPageNumberResolver = new LastComicPageNumberResolver();
+            
+            ILastComicPageNavigator lastComicPageNavigator = new LastComicPageNavigator(comicPageBuilder, lastComicPageNumberResolver);
             ComicPage firstComicPage = new ComicPage() 
             { 
                 PageNumber = 1,
-                ComicIssue = new ComicIssue() { NumberOfPages = 32 }
+                ComicIssue = new ComicIssue() { NumberOfPages = numberOfPages }
             };
-            ComicPage lastComicPage = lastComicPageNavigator.LastComicPage(firstComicPage);
+            ComicPage lastComicPage = lastComicPageNavigator.GetLastComicPage(firstComicPage);
 
+            Assert.That(lastComicPage.PageNumber, Is.EqualTo(lastPageNumber));
+            Assert.That(lastComicPage.FileName, Is.EqualTo(lastPageFileName));
         }
 
         [SetUp]

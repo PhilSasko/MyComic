@@ -107,14 +107,22 @@ a.page-navigation-button {
     border-width: 2px;
     color: #b970db;
     position: relative;
-    letter-spacing: -2px;
+    letter-spacing: -5px;
 }
 
-    a.page-navigation-button:hover {
-        border-color: #faf5ff;
-        color: #faf5ff;
-        text-decoration: none;
-    }
+a.left-page-navigation-button {
+    padding-right: 10px;
+}
+
+a.right-page-navigation-button {
+    padding-left: 0px;
+}
+
+a.page-navigation-button:hover {
+    border-color: #faf5ff;
+    color: #faf5ff;
+    text-decoration: none;
+}
 
 .page-navigation-button-div {
     position: relative;
