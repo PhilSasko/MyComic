@@ -9,7 +9,6 @@ namespace MyComic.PageNavigation
 
     public class ComicPageNameResolver : IComicPageNameResolver
     {
-        // TODO: create a test for this.
         public string GetComicPageNamneFromComicPageNumber(int comicPageNumber)
         {
             StringBuilder pageName = new StringBuilder(comicPageNumber < 10 ? $"0{comicPageNumber}" : $"{comicPageNumber}");

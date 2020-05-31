@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyComic.PageNavigation;
+using MyComic.Files;
 
 namespace MyComic.Presentation
 {
@@ -44,6 +45,7 @@ namespace MyComic.Presentation
             services.AddTransient<ILastComicPageNavigator, LastComicPageNavigator>();
             services.AddTransient<ILastComicPageNumberResolver, LastComicPageNumberResolver>();
             services.AddTransient<IComicIssueResolver, ComicIssueResolver>();
+            services.AddTransient<IFileStringResolver, FileStringResolver>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

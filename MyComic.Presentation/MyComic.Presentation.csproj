@@ -18,6 +18,7 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\MyComic.Files\MyComic.Files.csproj" />
     <ProjectReference Include="..\MyComic.PageNavigation\MyComic.PageNavigation.csproj" />
     <ProjectReference Include="..\MyComic.Presentation.Models\MyComic.Presentation.Models.csproj" />
   </ItemGroup>
