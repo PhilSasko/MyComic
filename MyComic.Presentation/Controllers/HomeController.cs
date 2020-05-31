@@ -63,6 +63,12 @@ namespace MyComic.Presentation.Controllers
             return View(comicPageViewModel);
         }
 
+        public IActionResult FirstPage(int pageNumber, int issueNumber)
+        {
+            // TODO: Implement the first page button functionality.
+            throw new NotImplementedException();
+        }
+
         public IActionResult PreviousPage(int pageNumber, int issueNumber)
         {
             ComicPage currentComicPage = _comicPageBuilder.BuildeComicPageFromPageNumber(pageNumber);
