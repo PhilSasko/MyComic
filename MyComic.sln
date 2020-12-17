@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Data.Comic", "MyCom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Data.Comic.Tests", "MyComic.Data.Comic.Tests\MyComic.Data.Comic.Tests.csproj", "{444614CB-EC51-4F23-9868-A17E0DB68E53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyComic.Files", "MyComic.Files\MyComic.Files.csproj", "{B593EC92-96F2-4CDF-92CC-20C0618D06C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Files", "MyComic.Files\MyComic.Files.csproj", "{B593EC92-96F2-4CDF-92CC-20C0618D06C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyComic.DataAccess.ComicPages", "MyComic.DataAccess.ComicPages\MyComic.DataAccess.ComicPages.csproj", "{16BE7DC2-75F9-440C-8219-3C47FA01954A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{B593EC92-96F2-4CDF-92CC-20C0618D06C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B593EC92-96F2-4CDF-92CC-20C0618D06C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B593EC92-96F2-4CDF-92CC-20C0618D06C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16BE7DC2-75F9-440C-8219-3C47FA01954A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16BE7DC2-75F9-440C-8219-3C47FA01954A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16BE7DC2-75F9-440C-8219-3C47FA01954A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16BE7DC2-75F9-440C-8219-3C47FA01954A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

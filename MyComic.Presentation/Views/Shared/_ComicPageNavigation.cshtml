@@ -1,16 +1,16 @@
-﻿@model MyComic.Entities.Comic.ComicPage
+﻿@model MyComic.Presentation.Models.ComicPageViewModel
 
 <div class="comic-page-navigation-div">
-    <a class="page-navigation-button left-page-navigation-button" asp-controller="Home" asp-action="FirstPage" asp-route-pageNumber="@Model.PageNumber" asp-route-issueNumber="@Model.ComicIssue.IssueNumber">
+    <a class="page-navigation-button left-page-navigation-button" asp-controller="Home" asp-action="FirstPage" asp-route-issueNumber="@Model.ComicIssue.IssueNumber">
         <div class="page-navigation-button-div"><<</div>
     </a>
-    <a class="page-navigation-button left-page-navigation-button" asp-controller="Home" asp-action="PreviousPage" asp-route-pageNumber="@Model.PageNumber" asp-route-issueNumber="@Model.ComicIssue.IssueNumber">
+    <a class="page-navigation-button left-page-navigation-button" asp-controller="Home" asp-action="PreviousPage" asp-route-pageNumber="@Model.ComicPage.PageNumber" asp-route-issueNumber="@Model.ComicIssue.IssueNumber">
         <div class="page-navigation-button-div"><</div>
     </a>
-    <a class="page-navigation-button right-page-navigation-button" asp-controller="Home" asp-action="NextPage" asp-route-pageNumber="@Model.PageNumber" asp-route-issueNumber="@Model.ComicIssue.IssueNumber">
+    <a class="page-navigation-button right-page-navigation-button" asp-controller="Home" asp-action="NextPage" asp-route-pageNumber="@Model.ComicPage.PageNumber" asp-route-issueNumber="@Model.ComicIssue.IssueNumber">
         <div class="page-navigation-button-div">></div>
     </a>
-    <a class="page-navigation-button right-page-navigation-button" asp-controller="Home" asp-action="LastPage" asp-route-pageNumber="@Model.PageNumber" asp-route-issueNumber="@Model.ComicIssue.IssueNumber">
+    <a class="page-navigation-button right-page-navigation-button" asp-controller="Home" asp-action="LastPage" asp-route-issueNumber="@Model.ComicIssue.IssueNumber">
         <div class="page-navigation-button-div">>></div>
     </a>
 </div>
