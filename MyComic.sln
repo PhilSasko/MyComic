@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyComic.Domain", "MyComic.Domain\MyComic.Domain.csproj", "{96D7BD64-DBCC-4007-9385-181F0C90AD0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Presentation", "MyComic.Presentation\MyComic.Presentation.csproj", "{DB3F0AA4-E785-4A19-BED2-38463A049FDA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Presentation.Models", "MyComic.Presentation.Models\MyComic.Presentation.Models.csproj", "{DBE23927-9A3A-47F0-AA3B-713A9AA52AFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.PageNavigation", "MyComic.PageNavigation\MyComic.PageNavigation.csproj", "{7D443A34-6148-4EE1-8DEF-F60BB41D8E79}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Entities", "MyComic.Entities\MyComic.Entities.csproj", "{492CAD0A-9E34-4D1C-AD74-23F41D7C6AA4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Files.Behavior", "MyComic.Files.Behavior\MyComic.Files.Behavior.csproj", "{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.PageNavigation.Tests", "MyComic.PageNavigation.Tests\MyComic.PageNavigation.Tests.csproj", "{96D012A8-43C3-46D5-A723-53D3390B80A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Data.Comic", "MyComic.Data.Comic\MyComic.Data.Comic.csproj", "{883C683B-3375-494C-8A52-5021F9459673}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Data.Comic.Tests", "MyComic.Data.Comic.Tests\MyComic.Data.Comic.Tests.csproj", "{444614CB-EC51-4F23-9868-A17E0DB68E53}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComic.Files", "MyComic.Files\MyComic.Files.csproj", "{B593EC92-96F2-4CDF-92CC-20C0618D06C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyComic.DataAccess.ComicPages", "MyComic.DataAccess.ComicPages\MyComic.DataAccess.ComicPages.csproj", "{16BE7DC2-75F9-440C-8219-3C47FA01954A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +29,46 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{96D7BD64-DBCC-4007-9385-181F0C90AD0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96D7BD64-DBCC-4007-9385-181F0C90AD0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96D7BD64-DBCC-4007-9385-181F0C90AD0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96D7BD64-DBCC-4007-9385-181F0C90AD0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB3F0AA4-E785-4A19-BED2-38463A049FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB3F0AA4-E785-4A19-BED2-38463A049FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB3F0AA4-E785-4A19-BED2-38463A049FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB3F0AA4-E785-4A19-BED2-38463A049FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE23927-9A3A-47F0-AA3B-713A9AA52AFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE23927-9A3A-47F0-AA3B-713A9AA52AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE23927-9A3A-47F0-AA3B-713A9AA52AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE23927-9A3A-47F0-AA3B-713A9AA52AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D443A34-6148-4EE1-8DEF-F60BB41D8E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D443A34-6148-4EE1-8DEF-F60BB41D8E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D443A34-6148-4EE1-8DEF-F60BB41D8E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D443A34-6148-4EE1-8DEF-F60BB41D8E79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{492CAD0A-9E34-4D1C-AD74-23F41D7C6AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492CAD0A-9E34-4D1C-AD74-23F41D7C6AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492CAD0A-9E34-4D1C-AD74-23F41D7C6AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492CAD0A-9E34-4D1C-AD74-23F41D7C6AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2D67002-4E04-4F5C-89AC-B0C9FBA73072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D012A8-43C3-46D5-A723-53D3390B80A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D012A8-43C3-46D5-A723-53D3390B80A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D012A8-43C3-46D5-A723-53D3390B80A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D012A8-43C3-46D5-A723-53D3390B80A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{883C683B-3375-494C-8A52-5021F9459673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{883C683B-3375-494C-8A52-5021F9459673}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{883C683B-3375-494C-8A52-5021F9459673}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{883C683B-3375-494C-8A52-5021F9459673}.Release|Any CPU.Build.0 = Release|Any CPU
+		{444614CB-EC51-4F23-9868-A17E0DB68E53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{444614CB-EC51-4F23-9868-A17E0DB68E53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{444614CB-EC51-4F23-9868-A17E0DB68E53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{444614CB-EC51-4F23-9868-A17E0DB68E53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B593EC92-96F2-4CDF-92CC-20C0618D06C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B593EC92-96F2-4CDF-92CC-20C0618D06C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B593EC92-96F2-4CDF-92CC-20C0618D06C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B593EC92-96F2-4CDF-92CC-20C0618D06C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16BE7DC2-75F9-440C-8219-3C47FA01954A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16BE7DC2-75F9-440C-8219-3C47FA01954A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16BE7DC2-75F9-440C-8219-3C47FA01954A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16BE7DC2-75F9-440C-8219-3C47FA01954A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
