@@ -5,7 +5,7 @@ namespace MyComic.PageNavigation
 {
     public interface ILastComicPageNavigator
     {
-        ComicPage GetLastComicPage(ComicPage currentComicPage);
+        ComicPage GetLastComicPage(ComicIssue currentComicIssue);
     }
     public class LastComicPageNavigator : ILastComicPageNavigator
     {
@@ -20,9 +20,9 @@ namespace MyComic.PageNavigation
                 ?? throw new ArgumentNullException(nameof(lastComicPageNumberResolver));
         }
 
-        public ComicPage GetLastComicPage(ComicPage currentComicPage)
+        public ComicPage GetLastComicPage(ComicIssue currentComicIssue)
         {
-            int lastComicPageNumber = _lastComicPageNumberResolver.ResolveLastComicPageNumberFromComicPage(currentComicPage);
+            int lastComicPageNumber = _lastComicPageNumberResolver.ResolveLastComicPageNumberFromComicPage(currentComicIssue);
 
             return _comicPageBuilder.BuildeComicPageFromPageNumber(lastComicPageNumber);
         }
