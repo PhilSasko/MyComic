@@ -7,14 +7,11 @@ namespace MyComic.PageNavigation
 {
     public interface ILastComicPageNumberResolver
     {
-        int ResolveLastComicPageNumberFromComicPage(ComicPage comicPage);
+        int ResolveLastComicPageNumberFromComicPage(ComicIssue comicIssue);
     }
 
     public class LastComicPageNumberResolver : ILastComicPageNumberResolver
     {
-        public int ResolveLastComicPageNumberFromComicPage(ComicPage comicPage)
-        {
-            return comicPage.ComicIssue.NumberOfPages;
-        }
+        public int ResolveLastComicPageNumberFromComicPage(ComicIssue comicIssue) => comicIssue.NumberOfPages;
     }
 }
