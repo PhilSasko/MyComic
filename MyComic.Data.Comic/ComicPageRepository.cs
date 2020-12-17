@@ -28,9 +28,14 @@ namespace MyComic.Data.Comic
             try
             {
                 IEnumerable<ComicPage> comicPages = JsonConvert.DeserializeObject<IEnumerable<ComicPage>>(comicPagesJson);
-                IEnumerable<ComicPage> filteredComiicPages = comicPages.Where(cp => predicate(cp));
-                // TODO: throw exception if Count of filteredComicPages is larger than 1
-                return filteredComiicPages.FirstOrDefault();
+                IEnumerable<ComicPage> filteredComicPages = comicPages.Where(cp => predicate(cp));
+
+                if (filteredComicPages.Count() > 1)
+                {
+                    throw new ArgumentException("More than one comic page was returned");
+                }
+
+                return filteredComicPages.FirstOrDefault();
             }
             catch (JsonReaderException)
             {
