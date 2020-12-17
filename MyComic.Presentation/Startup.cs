@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using MyComic.Presentation.Data;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyComic.PageNavigation;
 using MyComic.Files;
+using MyComic.PageNavigation.DataRetrieval;
+using MyComic.DataAccess.ComicPages;
 
 namespace MyComic.Presentation
 {
@@ -40,12 +36,12 @@ namespace MyComic.Presentation
             services.AddTransient<IComicPageNameResolver, ComicPageNameResolver>();
             services.AddTransient<IComicPageBuilder, ComicPageBuilder>();
             services.AddTransient<IDefaultComicPageRetriever, DefaultComicPageRetriever>();
-            services.AddTransient<INextComicPageNavigator, NextComicPageNavigator>();
             services.AddTransient<IPreviousComicPageNavigator, PreviousComicPageNavigator>();
             services.AddTransient<ILastComicPageNavigator, LastComicPageNavigator>();
             services.AddTransient<ILastComicPageNumberResolver, LastComicPageNumberResolver>();
             services.AddTransient<IComicIssueResolver, ComicIssueResolver>();
             services.AddTransient<IFileStringResolver, FileStringResolver>();
+            services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
