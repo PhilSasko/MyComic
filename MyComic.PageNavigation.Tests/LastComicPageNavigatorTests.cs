@@ -24,12 +24,13 @@ namespace MyComic.PageNavigation.Tests
             ILastComicPageNumberResolver lastComicPageNumberResolver = new LastComicPageNumberResolver();
             
             ILastComicPageNavigator lastComicPageNavigator = new LastComicPageNavigator(comicPageBuilder, lastComicPageNumberResolver);
-            ComicPage firstComicPage = new ComicPage() 
-            { 
-                PageNumber = 1,
-                ComicIssue = new ComicIssue() { NumberOfPages = numberOfPages }
+
+            ComicIssue comicIssue = new ComicIssue()
+            {
+                NumberOfPages = numberOfPages
             };
-            ComicPage lastComicPage = lastComicPageNavigator.GetLastComicPage(firstComicPage);
+
+            ComicPage lastComicPage = lastComicPageNavigator.GetLastComicPage(comicIssue);
 
             Assert.That(lastComicPage.PageNumber, Is.EqualTo(lastPageNumber));
             Assert.That(lastComicPage.FileName, Is.EqualTo(lastPageFileName));
