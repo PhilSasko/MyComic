@@ -1,7 +1,7 @@
 ﻿using MyComic.Entities.Comic;
 using System;
 
-namespace MyComic.PageNavigation
+namespace MyComic.PageProviding
 {
     public interface IComicPageBuilder
     {

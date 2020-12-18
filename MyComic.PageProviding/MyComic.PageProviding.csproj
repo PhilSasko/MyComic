@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyComic.Entities\MyComic.Entities.csproj" />
-    <ProjectReference Include="..\MyComic.PageProviding\MyComic.PageProviding.csproj" />
   </ItemGroup>
 
 </Project>

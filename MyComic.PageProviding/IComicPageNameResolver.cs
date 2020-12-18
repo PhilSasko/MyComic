@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace MyComic.PageNavigation
+namespace MyComic.PageProviding
 {
     public interface IComicPageNameResolver
     {

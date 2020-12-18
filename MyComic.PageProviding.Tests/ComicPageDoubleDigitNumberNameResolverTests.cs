@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using MyComic.PageProviding;
+using NUnit.Framework;
 
 namespace MyComic.PageNavigation.Tests
 {

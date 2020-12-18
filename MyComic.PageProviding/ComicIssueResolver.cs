@@ -1,9 +1,9 @@
 ﻿using MyComic.Entities.Comic;
-using MyComic.PageNavigation.DataRetrieval;
+using MyComic.PageProviding.DataRetrieval;
 using System;
 using System.Collections.Generic;
 
-namespace MyComic.PageNavigation
+namespace MyComic.PageProviding
 {
     public interface IComicIssueResolver
     {

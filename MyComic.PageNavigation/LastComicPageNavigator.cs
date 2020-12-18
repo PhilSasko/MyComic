@@ -1,4 +1,5 @@
 ﻿using MyComic.Entities.Comic;
+using MyComic.PageProviding;
 using System;
 
 namespace MyComic.PageNavigation

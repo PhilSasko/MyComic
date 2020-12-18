@@ -1,9 +1,6 @@
 ﻿using MyComic.Entities.Comic;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace MyComic.PageNavigation
+namespace MyComic.PageProviding
 {
     public interface IDefaultComicPageRetriever
     {
@@ -17,7 +14,8 @@ namespace MyComic.PageNavigation
             return new ComicPage()
             {
                 PageNumber = 0,
-                FileName = "cover.jpg"
+                FileName = "cover.jpg",
+                IssueId = 1
             };
         }
     }

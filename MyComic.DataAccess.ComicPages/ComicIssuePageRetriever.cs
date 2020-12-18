@@ -1,8 +1,6 @@
 ﻿using MyComic.Entities.Comic;
-using MyComic.PageNavigation.DataRetrieval;
-using System;
+using MyComic.PageProviding.DataRetrieval;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MyComic.DataAccess.ComicPages
 {

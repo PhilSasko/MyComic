@@ -1,4 +1,5 @@
 ﻿using MyComic.Entities.Comic;
+using MyComic.PageProviding;
 using NUnit.Framework;
 
 namespace MyComic.PageNavigation.Tests
@@ -33,7 +34,7 @@ namespace MyComic.PageNavigation.Tests
         [SetUp]
         public void Setup()
         {
-            _comicPageBuilder = new ComicPageBuilder(new ComicPageNameResolver());
+            _comicPageBuilder = new ComicPageBuilder(new ComicPageDoubleDigitNumberNameResolver());
         }
     }
 }

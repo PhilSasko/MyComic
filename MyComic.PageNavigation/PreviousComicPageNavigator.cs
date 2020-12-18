@@ -1,7 +1,6 @@
 ﻿using MyComic.Entities.Comic;
+using MyComic.PageProviding;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MyComic.PageNavigation
 {

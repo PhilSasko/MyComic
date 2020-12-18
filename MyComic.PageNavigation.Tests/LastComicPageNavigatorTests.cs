@@ -1,9 +1,6 @@
 ﻿using MyComic.Entities.Comic;
+using MyComic.PageProviding;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MyComic.PageNavigation.Tests
 {
@@ -18,7 +15,6 @@ namespace MyComic.PageNavigation.Tests
         [TestCase(1, 1, "01.jpg")]
         public void LastComicPage_WhenFirstComicPage_GetsLastPage(int numberOfPages, int lastPageNumber, string lastPageFileName)
         {
-            // Should we be using the ServiceLocator (antis) pattern in a case like this?
             IComicPageNameResolver comicPageNameResolver = new ComicPageDoubleDigitNumberNameResolver();
             IComicPageBuilder comicPageBuilder = new ComicPageBuilder(comicPageNameResolver);
             ILastComicPageNumberResolver lastComicPageNumberResolver = new LastComicPageNumberResolver();

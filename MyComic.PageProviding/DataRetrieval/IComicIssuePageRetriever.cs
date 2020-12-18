@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyComic.PageNavigation.DataRetrieval
+namespace MyComic.PageProviding.DataRetrieval
 {
     public interface IComicIssuePageRetriever
     {
