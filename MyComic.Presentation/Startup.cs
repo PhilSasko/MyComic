@@ -7,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyComic.PageNavigation;
-using MyComic.Files;
 using MyComic.PageNavigation.DataRetrieval;
 using MyComic.DataAccess.ComicPages;
 
@@ -40,7 +39,6 @@ namespace MyComic.Presentation
             services.AddTransient<ILastComicPageNavigator, LastComicPageNavigator>();
             services.AddTransient<ILastComicPageNumberResolver, LastComicPageNumberResolver>();
             services.AddTransient<IComicIssueResolver, ComicIssueResolver>();
-            services.AddTransient<IFileStringResolver, FileStringResolver>();
             services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
         }
 

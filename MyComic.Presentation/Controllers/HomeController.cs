@@ -18,8 +18,6 @@ namespace MyComic.Presentation.Controllers
         private readonly ILastComicPageNavigator _lastComicPageNavigator;
         private readonly IComicIssueResolver _comicIssueResolver;
 
-        const int ComonNumberOfPages = 32;   // TODO: temporary workaround. Remove when restructure of page navigation.
-
         public HomeController
             ( ILogger<HomeController> logger
             , IComicPageBuilder comicPageBuilder
