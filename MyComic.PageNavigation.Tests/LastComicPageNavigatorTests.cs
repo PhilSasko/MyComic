@@ -19,7 +19,7 @@ namespace MyComic.PageNavigation.Tests
         public void LastComicPage_WhenFirstComicPage_GetsLastPage(int numberOfPages, int lastPageNumber, string lastPageFileName)
         {
             // Should we be using the ServiceLocator (antis) pattern in a case like this?
-            IComicPageNameResolver comicPageNameResolver = new ComicPageNameResolver();
+            IComicPageNameResolver comicPageNameResolver = new ComicPageDoubleDigitNumberNameResolver();
             IComicPageBuilder comicPageBuilder = new ComicPageBuilder(comicPageNameResolver);
             ILastComicPageNumberResolver lastComicPageNumberResolver = new LastComicPageNumberResolver();
             
@@ -39,7 +39,7 @@ namespace MyComic.PageNavigation.Tests
         [SetUp]
         public void Setup()
         {
-            _comicPageBuilder = new ComicPageBuilder(new ComicPageNameResolver());
+            _comicPageBuilder = new ComicPageBuilder(new ComicPageDoubleDigitNumberNameResolver());
         }
     }
 }

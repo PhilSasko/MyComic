@@ -3,7 +3,7 @@
 namespace MyComic.PageNavigation.Tests
 {
     [TestFixture]
-    class ComicPageNameResolverTests
+    class ComicPageDoubleDigitNumberNameResolverTests
     {
         [TestCase(1,  "01.jpg")]
         [TestCase(9,  "09.jpg")]
@@ -12,7 +12,7 @@ namespace MyComic.PageNavigation.Tests
         public void GetComicPageNamneFromComicPageNumber_WhenOne_ReturnsCorrectName(int pageNumber, string expectedPageFileName)
         {
             // Arrange
-            ComicPageNameResolver comicPageNameResolver = new ComicPageNameResolver();
+            ComicPageDoubleDigitNumberNameResolver comicPageNameResolver = new ComicPageDoubleDigitNumberNameResolver();
 
             // Act
             string pageName = comicPageNameResolver.GetComicPageNamneFromComicPageNumber(pageNumber);

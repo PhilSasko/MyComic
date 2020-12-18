@@ -7,7 +7,7 @@ namespace MyComic.PageNavigation
         string GetComicPageNamneFromComicPageNumber(int comicPageNumber);
     }
 
-    public class ComicPageNameResolver : IComicPageNameResolver
+    public class ComicPageDoubleDigitNumberNameResolver : IComicPageNameResolver
     {
         public string GetComicPageNamneFromComicPageNumber(int comicPageNumber)
         {
