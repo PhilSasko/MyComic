@@ -4,6 +4,7 @@ namespace MyComic.Entities.Comic
 {
     public class ComicPage
     {
+        public Guid PageId { get; set; }
         public int IssueId { get; set; }
         public int PageNumber { get; set; }
         public string FileName { get; set; }

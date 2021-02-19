@@ -7,8 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyComic.PageNavigation;
-using MyComic.PageNavigation.DataRetrieval;
 using MyComic.DataAccess.ComicPages;
+using MyComic.PageProviding;
+using MyComic.PageProviding.DataRetrieval;
 
 namespace MyComic.Presentation
 {
@@ -32,7 +33,7 @@ namespace MyComic.Presentation
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            services.AddTransient<IComicPageNameResolver, ComicPageNameResolver>();
+            services.AddTransient<IComicPageNameResolver, ComicPageDoubleDigitNumberNameResolver>();
             services.AddTransient<IComicPageBuilder, ComicPageBuilder>();
             services.AddTransient<IDefaultComicPageRetriever, DefaultComicPageRetriever>();
             services.AddTransient<IPreviousComicPageNavigator, PreviousComicPageNavigator>();
@@ -40,6 +41,7 @@ namespace MyComic.Presentation
             services.AddTransient<ILastComicPageNumberResolver, LastComicPageNumberResolver>();
             services.AddTransient<IComicIssueResolver, ComicIssueResolver>();
             services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
+            services.AddTransient<IComicPageFromIdRetriever, ComicPageFromIdRetriever>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,7 +70,7 @@ namespace MyComic.Presentation
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{issueNumber?}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{pageId:guid?}");
                 endpoints.MapRazorPages();
             });
         }
