@@ -1,4 +1,7 @@
 ﻿using MyComic.Entities.Comic;
+using MyComic.PageProviding.DataRetrieval;
+using System;
+using System.Linq;
 
 namespace MyComic.PageProviding
 {
@@ -9,14 +12,23 @@ namespace MyComic.PageProviding
 
     public class DefaultComicPageRetriever : IDefaultComicPageRetriever
     {
+        private readonly IComicIssuePageRetriever _comicIssuePageRetriever;
+
+        public DefaultComicPageRetriever(IComicIssuePageRetriever comicIssuePageRetriever)
+        {
+            _comicIssuePageRetriever = comicIssuePageRetriever ?? throw new ArgumentNullException(nameof(comicIssuePageRetriever));
+        }
+
         public ComicPage RetrieveDefaultComicPage()
         {
-            return new ComicPage()
+            try
             {
-                PageNumber = 0,
-                FileName = "cover.jpg",
-                IssueId = 1
-            };
+                return _comicIssuePageRetriever.RetrieveComicPagesForIssue(1).Single(page => page.PageNumber == 0);
+            }
+            catch (InvalidOperationException)
+            {
+                throw new InvalidOperationException($"Unable to retrieve default comic page");
+            }
         }
     }
 }

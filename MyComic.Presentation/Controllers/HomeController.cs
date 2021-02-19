@@ -20,6 +20,7 @@ namespace MyComic.Presentation.Controllers
         private readonly ILastComicPageNavigator _lastComicPageNavigator;
         private readonly IComicIssueResolver _comicIssueResolver;
         private readonly IComicPageFromIdRetriever _comicPageFromIdRetriever;
+        private readonly INextComicPageIdRetriever _nextComicPageIdRetriever;
 
         public HomeController
             ( ILogger<HomeController> logger
@@ -28,7 +29,8 @@ namespace MyComic.Presentation.Controllers
             , IPreviousComicPageNavigator previousComicPageNavigator
             , ILastComicPageNavigator lastComicPageNavigator
             , IComicIssueResolver comicIssueResolver
-            , IComicPageFromIdRetriever comicPageFromIdRetriever)
+            , IComicPageFromIdRetriever comicPageFromIdRetriever
+            , INextComicPageIdRetriever nextComicPageIdRetriever)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _comicPageBuilder = comicPageBuilder ?? throw new ArgumentNullException(nameof(comicPageBuilder));
@@ -37,6 +39,7 @@ namespace MyComic.Presentation.Controllers
             _lastComicPageNavigator = lastComicPageNavigator ?? throw new ArgumentNullException(nameof(lastComicPageNavigator));
             _comicIssueResolver = comicIssueResolver ?? throw new ArgumentNullException(nameof(comicIssueResolver));
             _comicPageFromIdRetriever = comicPageFromIdRetriever ?? throw new ArgumentNullException(nameof(comicPageFromIdRetriever));
+            _nextComicPageIdRetriever = nextComicPageIdRetriever ?? throw new ArgumentNullException(nameof(nextComicPageIdRetriever));
         }
 
         public IActionResult Index(Guid? pageId)
@@ -69,13 +72,10 @@ namespace MyComic.Presentation.Controllers
             return RedirectToAction("Index", new { Id = previousComicPage.PageNumber, IssueNumber = issueNumber });
         }
 
-        public IActionResult NextPage(int pageNumber, int issueNumber)
+        public IActionResult NextPage(Guid pageId)
         {
-            ComicIssue comicIssue = _comicIssueResolver.ResolveComicIssue(issueNumber);
-            ComicPage currentComicPage = _comicPageBuilder.BuildeComicPageFromPageNumber(pageNumber);
-
-            // TODO: update this to calculate the next page instead of just sending back the current page.
-            return RedirectToAction("Index", new { id = currentComicPage.PageNumber, IssueNumber = issueNumber });
+            Guid nextComicPageId = _nextComicPageIdRetriever.RetrieveNextComicPageId(pageId);            
+            return RedirectToAction("Index", new { PageId = nextComicPageId });
         }
 
         public IActionResult LastPage(int issueNumber)
