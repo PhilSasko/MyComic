@@ -36,13 +36,13 @@ namespace MyComic.Presentation
             services.AddTransient<IComicPageNameResolver, ComicPageDoubleDigitNumberNameResolver>();
             services.AddTransient<IComicPageBuilder, ComicPageBuilder>();
             services.AddTransient<IDefaultComicPageRetriever, DefaultComicPageRetriever>();
-            services.AddTransient<IPreviousComicPageNavigator, PreviousComicPageNavigator>();
             services.AddTransient<ILastComicPageNavigator, LastComicPageNavigator>();
             services.AddTransient<ILastComicPageNumberResolver, LastComicPageNumberResolver>();
             services.AddTransient<IComicIssueResolver, ComicIssueResolver>();
             services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
             services.AddTransient<IComicPageFromIdRetriever, ComicPageFromIdRetriever>();
             services.AddTransient<INextComicPageIdRetriever, NextComicPageIdRetriever>();
+            services.AddTransient<IPreviousComicPageIdRetriever, PreviousComicPageIdRetriever>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

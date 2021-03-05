@@ -1,26 +1,29 @@
 ﻿using MyComic.PageProviding.DataRetrieval;
 using MyComic.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace MyComic.PageNavigation
 {
-    public interface INextComicPageIdRetriever
+    public interface IPreviousComicPageIdRetriever
     {
-        Guid RetrieveNextComicPageId(Guid pageId);
+        Guid RetrievePreviousComicPageId(Guid pageId);
     }
-    public class NextComicPageIdRetriever : INextComicPageIdRetriever
+
+    public class PreviousComicPageIdRetriever : IPreviousComicPageIdRetriever
     {
         private readonly IComicIssuePageRetriever _comicIssuePageRetriever;
 
-        public NextComicPageIdRetriever(IComicIssuePageRetriever comicIssuePageRetriever)
+        public PreviousComicPageIdRetriever(IComicIssuePageRetriever comicIssuePageRetriever)
         {
             _comicIssuePageRetriever = comicIssuePageRetriever ?? throw new ArgumentNullException(nameof(comicIssuePageRetriever));
         }
 
-        public Guid RetrieveNextComicPageId(Guid pageId)
+        public Guid RetrievePreviousComicPageId(Guid pageId)
         {
-            System.Collections.Generic.IEnumerable<Entities.Comic.ComicPage> comicIssue = 
+            System.Collections.Generic.IEnumerable<Entities.Comic.ComicPage> comicIssue =
                 _comicIssuePageRetriever.RetrieveComicPagesForIssue(1);
 
             Entities.Comic.ComicPage currentComicPage = comicIssue.SingleOrDefault(page => page.PageId == pageId);
@@ -33,13 +36,13 @@ namespace MyComic.PageNavigation
             try
             {
                 return comicIssue.TryOffsetBy(page => 
-                    page.PageNumber, currentComicPage.PageNumber, idOffset: 1, out Entities.Comic.ComicPage nextComicPage)
-                    ? nextComicPage.PageId
+                    page.PageNumber, currentComicPage.PageNumber, idOffset: -1, out Entities.Comic.ComicPage previousComicPage)
+                    ? previousComicPage.PageId
                     : currentComicPage.PageId;
             }
             catch (InvalidOperationException)
             {
-                throw new ArgumentException($"Unable to retrieve next comic page for page with PageId {pageId}");
+                throw new ArgumentException($"Unable to retrieve previous comic page for page with PageId {pageId}");
             }
         }
     }

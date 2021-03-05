@@ -4,18 +4,19 @@ using MyComic.PageProviding.DataRetrieval;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace MyComic.PageNavigation.Tests
 {
     [TestFixture]
-    public class NextComicPageIdRetrieverTests
+    public class PreviousComicPageIdRetrieverTests
     {
         [Test]
-        public void RetrieveNextComicPageId_WhenTwoPagesAndOnFirstPage_ReturnsSecondPagesId()
+        public void RetrievePreviousComicPageId_WhenTwoPagesAndOnSecondPage_ReturnsFirstPage()
         {
             Guid firstPageId = new Guid("66c4eff1-d7d6-44f4-b162-c71784aa162f");
             Guid secondPageId = new Guid("07ddadef-831a-4c42-8caf-0ea140aeff12");
-            IEnumerable <ComicPage> comicPages = new List<ComicPage>
+            IEnumerable<ComicPage> comicPages = new List<ComicPage>
             {
                 new ComicPage()
                 {
@@ -36,15 +37,15 @@ namespace MyComic.PageNavigation.Tests
             Mock<IComicIssuePageRetriever> mockComicIssuePageRetriever = new Mock<IComicIssuePageRetriever>();
             mockComicIssuePageRetriever.Setup(cipr => cipr.RetrieveComicPagesForIssue(It.IsAny<int>())).Returns(comicPages);
 
-            NextComicPageIdRetriever nextComicPageIdRetriever = new NextComicPageIdRetriever(mockComicIssuePageRetriever.Object);
+            PreviousComicPageIdRetriever previousComicPageIdRetriever = new PreviousComicPageIdRetriever(mockComicIssuePageRetriever.Object);
 
-            Guid nextComicPageId = nextComicPageIdRetriever.RetrieveNextComicPageId(firstPageId);
+            Guid previousComicPageId = previousComicPageIdRetriever.RetrievePreviousComicPageId(secondPageId);
 
-            Assert.That(nextComicPageId.ToString(), Is.EqualTo(secondPageId.ToString()));
+            Assert.That(previousComicPageId, Is.EqualTo(firstPageId));
         }
 
         [Test]
-        public void RetrieveNextComicPageId_WhenThreePagesAndOnSecondPage_ReturnsThirdPagesId()
+        public void RetrievePreviousComicPageId_WhenThreePagesAndOnSecondPage_ReturnsFirstPagesId()
         {
             Guid firstPageId = new Guid("66c4eff1-d7d6-44f4-b162-c71784aa162f");
             Guid secondPageId = new Guid("07ddadef-831a-4c42-8caf-0ea140aeff12");
@@ -77,15 +78,15 @@ namespace MyComic.PageNavigation.Tests
             Mock<IComicIssuePageRetriever> mockComicIssuePageRetriever = new Mock<IComicIssuePageRetriever>();
             mockComicIssuePageRetriever.Setup(cipr => cipr.RetrieveComicPagesForIssue(It.IsAny<int>())).Returns(comicPages);
 
-            NextComicPageIdRetriever nextComicPageIdRetriever = new NextComicPageIdRetriever(mockComicIssuePageRetriever.Object);
+            PreviousComicPageIdRetriever previousComicPageIdRetriever = new PreviousComicPageIdRetriever(mockComicIssuePageRetriever.Object);
 
-            Guid nextComicPageId = nextComicPageIdRetriever.RetrieveNextComicPageId(secondPageId);
+            Guid previousComicPageId = previousComicPageIdRetriever.RetrievePreviousComicPageId(secondPageId);
 
-            Assert.That(nextComicPageId.ToString(), Is.EqualTo(thirdPageId.ToString()));
+            Assert.That(previousComicPageId.ToString(), Is.EqualTo(firstPageId.ToString()));
         }
 
         [Test]
-        public void RetrieveNextComicPageId_WhenTwoPagesAndOnLastPage_ReturnsCurrentPage()
+        public void RetrievePreviousComicPageId_WhenTwoPagesAndOnFirstPage_ReturnsCurrentPage()
         {
             Guid firstPageId = new Guid("66c4eff1-d7d6-44f4-b162-c71784aa162f");
             Guid secondPageId = new Guid("07ddadef-831a-4c42-8caf-0ea140aeff12");
@@ -110,15 +111,15 @@ namespace MyComic.PageNavigation.Tests
             Mock<IComicIssuePageRetriever> mockComicIssuePageRetriever = new Mock<IComicIssuePageRetriever>();
             mockComicIssuePageRetriever.Setup(cipr => cipr.RetrieveComicPagesForIssue(It.IsAny<int>())).Returns(comicPages);
 
-            NextComicPageIdRetriever nextComicPageIdRetriever = new NextComicPageIdRetriever(mockComicIssuePageRetriever.Object);
+            PreviousComicPageIdRetriever previousComicPageIdRetriever = new PreviousComicPageIdRetriever(mockComicIssuePageRetriever.Object);
 
-            Guid nextComicPageId = nextComicPageIdRetriever.RetrieveNextComicPageId(secondPageId);
+            Guid previousComicPageId = previousComicPageIdRetriever.RetrievePreviousComicPageId(firstPageId);
 
-            Assert.That(nextComicPageId.ToString(), Is.EqualTo(secondPageId.ToString()));
+            Assert.That(previousComicPageId.ToString(), Is.EqualTo(firstPageId.ToString()));
         }
 
         [Test]
-        public void RetrieveNextComicPageId_PageCannotBeFound_ThrowsArgumentException()
+        public void RetrievePreviousComicPageId_PageCannotBeFound_ThrowsArgumentException()
         {
             Guid firstPageId = new Guid("66c4eff1-d7d6-44f4-b162-c71784aa162f");
             Guid secondPageId = new Guid("07ddadef-831a-4c42-8caf-0ea140aeff12");
@@ -143,11 +144,11 @@ namespace MyComic.PageNavigation.Tests
             Mock<IComicIssuePageRetriever> mockComicIssuePageRetriever = new Mock<IComicIssuePageRetriever>();
             mockComicIssuePageRetriever.Setup(cipr => cipr.RetrieveComicPagesForIssue(It.IsAny<int>())).Returns(comicPages);
 
-            NextComicPageIdRetriever nextComicPageIdRetriever = new NextComicPageIdRetriever(mockComicIssuePageRetriever.Object);
+            PreviousComicPageIdRetriever nextComicPageIdRetriever = new PreviousComicPageIdRetriever(mockComicIssuePageRetriever.Object);
 
             Guid notIncludedPageId = new Guid("2542fae4-9795-4215-9459-c6928ac3380e");
 
-            Assert.Throws<ArgumentException>(() => nextComicPageIdRetriever.RetrieveNextComicPageId(notIncludedPageId));
+            Assert.Throws<ArgumentException>(() => nextComicPageIdRetriever.RetrievePreviousComicPageId(notIncludedPageId));
         }
     }
 }
