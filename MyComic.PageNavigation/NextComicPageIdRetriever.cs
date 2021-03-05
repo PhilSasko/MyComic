@@ -7,7 +7,7 @@ namespace MyComic.PageNavigation
 {
     public interface INextComicPageIdRetriever
     {
-        Guid RetrieveNextComicPageId(Guid pageId);
+        Guid RetrieveNextComicPageId(Guid currentPageId);
     }
     public class NextComicPageIdRetriever : INextComicPageIdRetriever
     {

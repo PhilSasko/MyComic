@@ -22,13 +22,13 @@ namespace MyComic.Utilities.Tests
         [TestCase(5, 5, -4, 1)]
         [TestCase(100_000, 100_000, -1, 99_999)]
         [TestCase(100_000, 100_000, -99_999, 1)]
-        public void TryOffsetBy_WhenElements_ReturnsCorrectOne(int numberOfElements, int startId, int idOffset, int resultId)
+        public void TryOffsetBy_WhenElements_ReturnsCorrectOne(int numberOfElements, int startId, int idOffset, int expectedResultId)
         {
             IEnumerable<MockEntity> entities = GenerateAndGetEntities(numberOfElements);
 
             entities.TryOffsetBy(entity => entity.Id, startId: startId, idOffset: idOffset, out MockEntity secondEntity);
 
-            Assert.That(secondEntity.Id, Is.EqualTo(resultId));
+            Assert.That(secondEntity.Id, Is.EqualTo(expectedResultId));
         }
 
         private IEnumerable<MockEntity> GenerateAndGetEntities(int numberOfEntities)

@@ -1,15 +1,13 @@
 ﻿using MyComic.PageProviding.DataRetrieval;
 using MyComic.Utilities;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MyComic.PageNavigation
 {
     public interface IPreviousComicPageIdRetriever
     {
-        Guid RetrievePreviousComicPageId(Guid pageId);
+        Guid RetrievePreviousComicPageId(Guid currentPageId);
     }
 
     public class PreviousComicPageIdRetriever : IPreviousComicPageIdRetriever

@@ -68,13 +68,13 @@ namespace MyComic.Presentation.Controllers
 
         public IActionResult PreviousPage(Guid pageId)
         {
-            Guid previousComicPageId = _previousComicPageIdRetriever.RetrievePreviousComicPageId(pageId);
+            Guid previousComicPageId = _previousComicPageIdRetriever.RetrievePreviousComicPageId(currentPageId: pageId);
             return RedirectToAction("Index", new { PageId = previousComicPageId });
         }
 
         public IActionResult NextPage(Guid pageId)
         {
-            Guid nextComicPageId = _nextComicPageIdRetriever.RetrieveNextComicPageId(pageId);            
+            Guid nextComicPageId = _nextComicPageIdRetriever.RetrieveNextComicPageId(currentPageId: pageId);            
             return RedirectToAction("Index", new { PageId = nextComicPageId });
         }
 
