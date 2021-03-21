@@ -1,0 +1,12 @@
+C:\Users\sasko\source\repos\MyComic\MyComic.PageNavigation\bin\Debug\netstandard2.0\MyComic.PageNavigation.deps.json
+C:\Users\sasko\source\repos\MyComic\MyComic.PageNavigation\bin\Debug\netstandard2.0\MyComic.PageNavigation.dll
+C:\Users\sasko\source\repos\MyComic\MyComic.PageNavigation\bin\Debug\netstandard2.0\MyComic.PageNavigation.pdb
+C:\Users\sasko\source\repos\MyComic\MyComic.PageNavigation\obj\Debug\netstandard2.0\MyComic.PageNavigation.csprojAssemblyReference.cache
+C:\Users\sasko\source\repos\MyComic\MyComic.PageNavigation\obj\Debug\netstandard2.0\MyComic.PageNavigation.AssemblyInfoInputs.cache
+C:\Users\sasko\source\repos\MyComic\MyComic.PageNavigation\obj\Debug\netstandard2.0\MyComic.PageNavigation.AssemblyInfo.cs
+C:\Users\sasko\source\repos\MyComic\MyComic.PageNavigation\obj\Debug\netstandard2.0\MyComic.PageNavigation.csproj.CopyComplete
+C:\Users\sasko\source\repos\MyComic\MyComic.PageNavigation\obj\Debug\netstandard2.0\MyComic.PageNavigation.dll
+C:\Users\sasko\source\repos\MyComic\MyComic.PageNavigation\obj\Debug\netstandard2.0\MyComic.PageNavigation.pdb
+C:\Users\sasko\source\repos\MyComic\MyComic.PageNavigation\bin\Debug\netstandard2.0\MyComic.Entities.dll
+C:\Users\sasko\source\repos\MyComic\MyComic.PageNavigation\bin\Debug\netstandard2.0\MyComic.Entities.pdb
+C:\Users\sasko\source\repos\MyComic\MyComic.PageNavigation\obj\Debug\netstandard2.0\MyComic.PageNavigation.csproj.CoreCompileInputs.cache

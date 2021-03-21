@@ -1,0 +1,15 @@
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\bin\Debug\netstandard2.0\MyComic.Files.Behavior.deps.json
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\bin\Debug\netstandard2.0\MyComic.Files.Behavior.dll
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\bin\Debug\netstandard2.0\MyComic.Files.Behavior.pdb
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\obj\Debug\netstandard2.0\MyComic.Files.Behavior.AssemblyInfoInputs.cache
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\obj\Debug\netstandard2.0\MyComic.Files.Behavior.AssemblyInfo.cs
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\obj\Debug\netstandard2.0\MyComic.Files.Behavior.dll
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\obj\Debug\netstandard2.0\MyComic.Files.Behavior.pdb
+C:\Users\sasko\source\repos\MyComic\MyComic.Files.Behavior\bin\Debug\netstandard2.0\MyComic.Files.Behavior.deps.json
+C:\Users\sasko\source\repos\MyComic\MyComic.Files.Behavior\bin\Debug\netstandard2.0\MyComic.Files.Behavior.dll
+C:\Users\sasko\source\repos\MyComic\MyComic.Files.Behavior\bin\Debug\netstandard2.0\MyComic.Files.Behavior.pdb
+C:\Users\sasko\source\repos\MyComic\MyComic.Files.Behavior\obj\Debug\netstandard2.0\MyComic.Files.Behavior.AssemblyInfoInputs.cache
+C:\Users\sasko\source\repos\MyComic\MyComic.Files.Behavior\obj\Debug\netstandard2.0\MyComic.Files.Behavior.AssemblyInfo.cs
+C:\Users\sasko\source\repos\MyComic\MyComic.Files.Behavior\obj\Debug\netstandard2.0\MyComic.Files.Behavior.dll
+C:\Users\sasko\source\repos\MyComic\MyComic.Files.Behavior\obj\Debug\netstandard2.0\MyComic.Files.Behavior.pdb
+C:\Users\sasko\source\repos\MyComic\MyComic.Files.Behavior\obj\Debug\netstandard2.0\MyComic.Files.Behavior.csprojAssemblyReference.cache

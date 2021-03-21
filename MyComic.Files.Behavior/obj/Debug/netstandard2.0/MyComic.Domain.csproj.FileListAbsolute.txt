@@ -1,0 +1,8 @@
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\bin\Debug\netstandard2.0\MyComic.Domain.deps.json
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\bin\Debug\netstandard2.0\MyComic.Domain.dll
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\bin\Debug\netstandard2.0\MyComic.Domain.pdb
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\obj\Debug\netstandard2.0\MyComic.Domain.AssemblyInfoInputs.cache
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\obj\Debug\netstandard2.0\MyComic.Domain.AssemblyInfo.cs
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\obj\Debug\netstandard2.0\MyComic.Domain.dll
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\obj\Debug\netstandard2.0\MyComic.Domain.pdb
+C:\Users\sasko\source\repos\MyComic\MyComic.Domain\obj\Debug\netstandard2.0\MyComic.Domain.csprojAssemblyReference.cache
