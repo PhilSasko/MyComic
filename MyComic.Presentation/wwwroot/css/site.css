@@ -69,3 +69,86 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+#main-comic-image {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#main-comic-image-content {
+    width: 800px;
+    margin: 0 auto;
+}
+
+body {
+    background: #efe0ff;
+}
+
+/* ============= */
+/* miscellaneous */
+/* ============= */
+
+#main-content{
+    padding: 1em 0em;
+}
+
+/* =========================== */
+/* Start Comic Page Navigation */
+/* =========================== */
+.comic-page-navigation-div {
+    display: block;
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px;
+}
+
+a.page-navigation-button {
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    border: solid;
+    border-radius: 30px;
+    border-color: #b970db;
+    border-width: 2px;
+    color: #b970db;
+    position: relative;
+    letter-spacing: -5px;
+}
+
+a.left-page-navigation-button {
+    padding-right: 10px;
+}
+
+a.right-page-navigation-button {
+    padding-left: 0px;
+}
+
+a.page-navigation-button:hover {
+    border-color: #faf5ff;
+    color: #faf5ff;
+    text-decoration: none;
+}
+
+.page-navigation-button-div {
+    position: relative;
+    top: 0px;
+    display: inline-block;
+    width: 40px;
+    padding-top: 0px;
+}
+
+/* Might need to uncomment (and add to navigation div inside anchor) if width and height of buttons change */
+/*.page-navigation-button-adjust-left {
+    position: relative;
+    left: -1px;
+}
+.page-navigation-button-adjust-right {
+    position: relative;
+    right: -1px;
+}*/
+
+/* ========================= */
+/* End Comic Page Navigation */
+/* ========================= */

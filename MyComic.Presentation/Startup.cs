@@ -1,17 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using MyComic.Presentation.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyComic.PageNavigation;
+using MyComic.DataAccess.ComicPages;
+using MyComic.PageProviding;
+using MyComic.PageProviding.DataRetrieval;
 
 namespace MyComic.Presentation
 {
@@ -34,6 +32,17 @@ namespace MyComic.Presentation
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddTransient<IDefaultComicPageRetriever, DefaultComicPageRetriever>();
+            services.AddTransient<IComicIssueResolver, ComicIssueResolver>();
+            services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
+            services.AddTransient<IComicPageFromIdRetriever, ComicPageFromIdRetriever>();
+            services.AddTransient<INextComicPageIdRetriever, NextComicPageIdRetriever>();
+            services.AddTransient<IPreviousComicPageIdRetriever, PreviousComicPageIdRetriever>();
+            services.AddTransient<ILastComicPageIdRetriever, LastComicPageIdRetriever>();
+            services.AddTransient<IFirstComicPageIdRetriever, FirstComicPageIdRetriever>();
+            services.AddTransient<IComicIssueByIdRetriever, ComicIssueByIdRetriever>();
+            services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,7 +71,7 @@ namespace MyComic.Presentation
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{pageId:guid?}");
                 endpoints.MapRazorPages();
             });
         }
