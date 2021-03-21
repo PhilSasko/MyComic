@@ -13,7 +13,6 @@ namespace MyComic.Presentation.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IDefaultComicPageRetriever _defaultComicPageRetriever;
-        private readonly ILastComicPageNavigator _lastComicPageNavigator;
         private readonly IComicIssueResolver _comicIssueResolver;
         private readonly IComicPageFromIdRetriever _comicPageFromIdRetriever;
         private readonly INextComicPageIdRetriever _nextComicPageIdRetriever;
@@ -23,7 +22,6 @@ namespace MyComic.Presentation.Controllers
         public HomeController
             ( ILogger<HomeController> logger
             , IDefaultComicPageRetriever defaultComicPageRetriever
-            , ILastComicPageNavigator lastComicPageNavigator
             , IComicIssueResolver comicIssueResolver
             , IComicPageFromIdRetriever comicPageFromIdRetriever
             , INextComicPageIdRetriever nextComicPageIdRetriever
@@ -34,8 +32,6 @@ namespace MyComic.Presentation.Controllers
                 ?? throw new ArgumentNullException(nameof(logger));
             _defaultComicPageRetriever = defaultComicPageRetriever
                 ?? throw new ArgumentNullException(nameof(defaultComicPageRetriever));
-            _lastComicPageNavigator = lastComicPageNavigator
-                ?? throw new ArgumentNullException(nameof(lastComicPageNavigator));
             _comicIssueResolver = comicIssueResolver
                 ?? throw new ArgumentNullException(nameof(comicIssueResolver));
             _comicPageFromIdRetriever = comicPageFromIdRetriever

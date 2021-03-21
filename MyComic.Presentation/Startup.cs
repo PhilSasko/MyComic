@@ -33,11 +33,7 @@ namespace MyComic.Presentation
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            services.AddTransient<IComicPageNameResolver, ComicPageDoubleDigitNumberNameResolver>();
-            services.AddTransient<IComicPageBuilder, ComicPageBuilder>();
             services.AddTransient<IDefaultComicPageRetriever, DefaultComicPageRetriever>();
-            services.AddTransient<ILastComicPageNavigator, LastComicPageNavigator>();
-            services.AddTransient<ILastComicPageNumberResolver, LastComicPageNumberResolver>();
             services.AddTransient<IComicIssueResolver, ComicIssueResolver>();
             services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
             services.AddTransient<IComicPageFromIdRetriever, ComicPageFromIdRetriever>();
