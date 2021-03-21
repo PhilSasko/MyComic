@@ -1,7 +1,7 @@
 ﻿@model MyComic.Presentation.Models.ComicPageViewModel
 
 <div class="comic-page-navigation-div">
-    <a class="page-navigation-button left-page-navigation-button" asp-controller="Home" asp-action="FirstPage" asp-route-issueNumber="@Model.ComicIssue.IssueNumber">
+    <a class="page-navigation-button left-page-navigation-button" asp-controller="Home" asp-action="FirstPage" asp-route-issueNumber="@Model.ComicIssue.IssueId">
         <div class="page-navigation-button-div"><<</div>
     </a>
     <a class="page-navigation-button left-page-navigation-button" asp-controller="Home" asp-action="PreviousPage" asp-route-pageId="@Model.ComicPage.PageId">

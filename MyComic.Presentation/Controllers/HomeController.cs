@@ -18,6 +18,7 @@ namespace MyComic.Presentation.Controllers
         private readonly INextComicPageIdRetriever _nextComicPageIdRetriever;
         private readonly IPreviousComicPageIdRetriever _previousComicPageIdRetriever;
         private readonly ILastComicPageIdRetriever _lastComicPageIdRetriever;
+        private readonly IFirstComicPageIdRetriever _firstComicPageIdRetriever;
 
         public HomeController
             ( ILogger<HomeController> logger
@@ -26,7 +27,8 @@ namespace MyComic.Presentation.Controllers
             , IComicPageFromIdRetriever comicPageFromIdRetriever
             , INextComicPageIdRetriever nextComicPageIdRetriever
             , IPreviousComicPageIdRetriever previousComicPageIdRetriever
-            , ILastComicPageIdRetriever lastComicPageIdRetriever)
+            , ILastComicPageIdRetriever lastComicPageIdRetriever
+            , IFirstComicPageIdRetriever firstComicPageIdRetriever)
         {
             _logger = logger
                 ?? throw new ArgumentNullException(nameof(logger));
@@ -42,6 +44,8 @@ namespace MyComic.Presentation.Controllers
                 ?? throw new ArgumentNullException(nameof(previousComicPageIdRetriever));
             _lastComicPageIdRetriever = lastComicPageIdRetriever
                 ?? throw new ArgumentNullException(nameof(lastComicPageIdRetriever));
+            _firstComicPageIdRetriever = firstComicPageIdRetriever
+                ?? throw new ArgumentNullException(nameof(firstComicPageIdRetriever));
         }
 
         public IActionResult Index(Guid? pageId)
@@ -61,9 +65,10 @@ namespace MyComic.Presentation.Controllers
             return View(comicPageViewModel);
         }
 
-        public IActionResult FirstPage(int issueNumber)
+        public IActionResult FirstPage(Guid issueId)
         {
-            throw new NotImplementedException("Implement the first page button functionality.");
+            Guid firstComicPageId = _firstComicPageIdRetriever.RetrieveFirstComicPageId(currentComicIssueId: issueId);
+            return RedirectToAction("Index", new { PageId = firstComicPageId });
         }
 
         public IActionResult PreviousPage(Guid pageId)

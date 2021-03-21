@@ -40,6 +40,7 @@ namespace MyComic.Presentation
             services.AddTransient<INextComicPageIdRetriever, NextComicPageIdRetriever>();
             services.AddTransient<IPreviousComicPageIdRetriever, PreviousComicPageIdRetriever>();
             services.AddTransient<ILastComicPageIdRetriever, LastComicPageIdRetriever>();
+            services.AddTransient<IFirstComicPageIdRetriever, FirstComicPageIdRetriever>();
             services.AddTransient<IComicIssueByIdRetriever, ComicIssueByIdRetriever>();
             services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
         }
