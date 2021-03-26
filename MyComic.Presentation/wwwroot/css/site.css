@@ -85,10 +85,17 @@ body {
     background: #efe0ff;
 }
 
+/* ============= */
+/* miscellaneous */
+/* ============= */
+
+#main-content{
+    padding: 1em 0em;
+}
+
 /* =========================== */
 /* Start Comic Page Navigation */
 /* =========================== */
-
 .comic-page-navigation-div {
     display: block;
     max-width: 300px;

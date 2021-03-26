@@ -7,8 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyComic.PageNavigation;
-using MyComic.PageNavigation.DataRetrieval;
 using MyComic.DataAccess.ComicPages;
+using MyComic.PageProviding;
+using MyComic.PageProviding.DataRetrieval;
 
 namespace MyComic.Presentation
 {
@@ -32,13 +33,15 @@ namespace MyComic.Presentation
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            services.AddTransient<IComicPageNameResolver, ComicPageNameResolver>();
-            services.AddTransient<IComicPageBuilder, ComicPageBuilder>();
             services.AddTransient<IDefaultComicPageRetriever, DefaultComicPageRetriever>();
-            services.AddTransient<IPreviousComicPageNavigator, PreviousComicPageNavigator>();
-            services.AddTransient<ILastComicPageNavigator, LastComicPageNavigator>();
-            services.AddTransient<ILastComicPageNumberResolver, LastComicPageNumberResolver>();
             services.AddTransient<IComicIssueResolver, ComicIssueResolver>();
+            services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
+            services.AddTransient<IComicPageFromIdRetriever, ComicPageFromIdRetriever>();
+            services.AddTransient<INextComicPageIdRetriever, NextComicPageIdRetriever>();
+            services.AddTransient<IPreviousComicPageIdRetriever, PreviousComicPageIdRetriever>();
+            services.AddTransient<ILastComicPageIdRetriever, LastComicPageIdRetriever>();
+            services.AddTransient<IFirstComicPageIdRetriever, FirstComicPageIdRetriever>();
+            services.AddTransient<IComicIssueByIdRetriever, ComicIssueByIdRetriever>();
             services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
         }
 
@@ -68,7 +71,7 @@ namespace MyComic.Presentation
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{issueNumber?}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{pageId:guid?}");
                 endpoints.MapRazorPages();
             });
         }

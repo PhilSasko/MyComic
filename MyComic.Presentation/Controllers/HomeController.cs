@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Logging;
+using MyComic.DataAccess.ComicPages;
 using MyComic.Entities.Comic;
 using MyComic.PageNavigation;
+using MyComic.PageProviding;
 using MyComic.Presentation.Models;
 
 namespace MyComic.Presentation.Controllers
@@ -12,41 +12,49 @@ namespace MyComic.Presentation.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IComicPageBuilder _comicPageBuilder;
         private readonly IDefaultComicPageRetriever _defaultComicPageRetriever;
-        private readonly IPreviousComicPageNavigator _previousComicPageNavigator;
-        private readonly ILastComicPageNavigator _lastComicPageNavigator;
         private readonly IComicIssueResolver _comicIssueResolver;
+        private readonly IComicPageFromIdRetriever _comicPageFromIdRetriever;
+        private readonly INextComicPageIdRetriever _nextComicPageIdRetriever;
+        private readonly IPreviousComicPageIdRetriever _previousComicPageIdRetriever;
+        private readonly ILastComicPageIdRetriever _lastComicPageIdRetriever;
+        private readonly IFirstComicPageIdRetriever _firstComicPageIdRetriever;
 
         public HomeController
             ( ILogger<HomeController> logger
-            , IComicPageBuilder comicPageBuilder
             , IDefaultComicPageRetriever defaultComicPageRetriever
-            , IPreviousComicPageNavigator previousComicPageNavigator
-            , ILastComicPageNavigator lastComicPageNavigator
-            , IComicIssueResolver comicIssueResolver)
+            , IComicIssueResolver comicIssueResolver
+            , IComicPageFromIdRetriever comicPageFromIdRetriever
+            , INextComicPageIdRetriever nextComicPageIdRetriever
+            , IPreviousComicPageIdRetriever previousComicPageIdRetriever
+            , ILastComicPageIdRetriever lastComicPageIdRetriever
+            , IFirstComicPageIdRetriever firstComicPageIdRetriever)
         {
             _logger = logger
                 ?? throw new ArgumentNullException(nameof(logger));
-            _comicPageBuilder = comicPageBuilder
-                ?? throw new ArgumentNullException(nameof(comicPageBuilder));
             _defaultComicPageRetriever = defaultComicPageRetriever
                 ?? throw new ArgumentNullException(nameof(defaultComicPageRetriever));
-            _previousComicPageNavigator = previousComicPageNavigator
-                ?? throw new ArgumentNullException(nameof(previousComicPageNavigator));
-            _lastComicPageNavigator = lastComicPageNavigator
-                ?? throw new ArgumentNullException(nameof(lastComicPageNavigator));
             _comicIssueResolver = comicIssueResolver
                 ?? throw new ArgumentNullException(nameof(comicIssueResolver));
+            _comicPageFromIdRetriever = comicPageFromIdRetriever
+                ?? throw new ArgumentNullException(nameof(comicPageFromIdRetriever));
+            _nextComicPageIdRetriever = nextComicPageIdRetriever
+                ?? throw new ArgumentNullException(nameof(nextComicPageIdRetriever));
+            _previousComicPageIdRetriever = previousComicPageIdRetriever
+                ?? throw new ArgumentNullException(nameof(previousComicPageIdRetriever));
+            _lastComicPageIdRetriever = lastComicPageIdRetriever
+                ?? throw new ArgumentNullException(nameof(lastComicPageIdRetriever));
+            _firstComicPageIdRetriever = firstComicPageIdRetriever
+                ?? throw new ArgumentNullException(nameof(firstComicPageIdRetriever));
         }
 
-        public IActionResult Index(int id = 0, int issueNumber = 1)
+        public IActionResult Index(Guid? pageId)
         {
-            ComicPage comicPage = 0 < id
-                ? _comicPageBuilder.BuildeComicPageFromPageNumber(id)
-                : _defaultComicPageRetriever.RetrieveDefaultComicPage();
+            ComicPage comicPage = pageId is null
+                ? _defaultComicPageRetriever.RetrieveDefaultComicPage()
+                : _comicPageFromIdRetriever.RetrieveComicPageFromId(pageId.Value);
 
-            ComicIssue comicIssue = _comicIssueResolver.ResolveComicIssue(issueNumber);
+            ComicIssue comicIssue = _comicIssueResolver.ResolveComicIssue(comicPage.IssueId);
 
             ComicPageViewModel comicPageViewModel = new ComicPageViewModel()
             {
@@ -57,35 +65,28 @@ namespace MyComic.Presentation.Controllers
             return View(comicPageViewModel);
         }
 
-        public IActionResult FirstPage(int issueNumber)
+        public IActionResult FirstPage(Guid issueId)
         {
-            throw new NotImplementedException("Implement the first page button functionality.");
+            Guid firstComicPageId = _firstComicPageIdRetriever.RetrieveFirstComicPageId(currentComicIssueId: issueId);
+            return RedirectToAction("Index", new { PageId = firstComicPageId });
         }
 
-        public IActionResult PreviousPage(int pageNumber, int issueNumber)
+        public IActionResult PreviousPage(Guid pageId)
         {
-            ComicPage currentComicPage = _comicPageBuilder.BuildeComicPageFromPageNumber(pageNumber);
-            ComicPage previousComicPage = _previousComicPageNavigator.GetPreviousComicPage(currentComicPage);
-
-            return RedirectToAction("Index", new { Id = previousComicPage.PageNumber, IssueNumber = issueNumber });
+            Guid previousComicPageId = _previousComicPageIdRetriever.RetrievePreviousComicPageId(currentPageId: pageId);
+            return RedirectToAction("Index", new { PageId = previousComicPageId });
         }
 
-        public IActionResult NextPage(int id, int issueNumber)
+        public IActionResult NextPage(Guid pageId)
         {
-            ComicIssue comicIssue = _comicIssueResolver.ResolveComicIssue(issueNumber);
-            ComicPage currentComicPage = _comicPageBuilder.BuildeComicPageFromPageNumber(id);
-
-            // TODO: update this to calculate the next page instead of just sending back the current page.
-            return RedirectToAction("Index", new { id = currentComicPage.PageNumber, IssueNumber = issueNumber });
+            Guid nextComicPageId = _nextComicPageIdRetriever.RetrieveNextComicPageId(currentPageId: pageId);            
+            return RedirectToAction("Index", new { PageId = nextComicPageId });
         }
 
-        public IActionResult LastPage(int issueNumber)
+        public IActionResult LastPage(Guid issueId)
         {
-            ComicIssue comicIssue = _comicIssueResolver.ResolveComicIssue(issueNumber);
-
-            ComicPage lastComicPage = _lastComicPageNavigator.GetLastComicPage(comicIssue);
-
-            return RedirectToAction("Index", new { Id = lastComicPage.PageNumber, IssueNumber = issueNumber });
+            Guid lastComicPageId = _lastComicPageIdRetriever.RetrieveLastComicPageId(currentComicIssueId: issueId);
+            return RedirectToAction("Index", new { PageId = lastComicPageId });
         }
     }
 }
