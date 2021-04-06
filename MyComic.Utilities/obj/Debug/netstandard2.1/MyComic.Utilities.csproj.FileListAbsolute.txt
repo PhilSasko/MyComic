@@ -1,9 +1,0 @@
-C:\Users\sasko\source\repos\MyComic\MyComic.Utilities\bin\Debug\netstandard2.1\MyComic.Utilities.deps.json
-C:\Users\sasko\source\repos\MyComic\MyComic.Utilities\bin\Debug\netstandard2.1\MyComic.Utilities.dll
-C:\Users\sasko\source\repos\MyComic\MyComic.Utilities\bin\Debug\netstandard2.1\MyComic.Utilities.pdb
-C:\Users\sasko\source\repos\MyComic\MyComic.Utilities\obj\Debug\netstandard2.1\MyComic.Utilities.csprojAssemblyReference.cache
-C:\Users\sasko\source\repos\MyComic\MyComic.Utilities\obj\Debug\netstandard2.1\MyComic.Utilities.AssemblyInfoInputs.cache
-C:\Users\sasko\source\repos\MyComic\MyComic.Utilities\obj\Debug\netstandard2.1\MyComic.Utilities.AssemblyInfo.cs
-C:\Users\sasko\source\repos\MyComic\MyComic.Utilities\obj\Debug\netstandard2.1\MyComic.Utilities.csproj.CoreCompileInputs.cache
-C:\Users\sasko\source\repos\MyComic\MyComic.Utilities\obj\Debug\netstandard2.1\MyComic.Utilities.dll
-C:\Users\sasko\source\repos\MyComic\MyComic.Utilities\obj\Debug\netstandard2.1\MyComic.Utilities.pdb

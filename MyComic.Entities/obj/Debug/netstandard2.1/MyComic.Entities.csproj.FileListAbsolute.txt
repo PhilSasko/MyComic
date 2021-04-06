@@ -1,9 +1,0 @@
-C:\Users\sasko\source\repos\MyComic\MyComic.Entities\bin\Debug\netstandard2.1\MyComic.Entities.deps.json
-C:\Users\sasko\source\repos\MyComic\MyComic.Entities\bin\Debug\netstandard2.1\MyComic.Entities.dll
-C:\Users\sasko\source\repos\MyComic\MyComic.Entities\bin\Debug\netstandard2.1\MyComic.Entities.pdb
-C:\Users\sasko\source\repos\MyComic\MyComic.Entities\obj\Debug\netstandard2.1\MyComic.Entities.csprojAssemblyReference.cache
-C:\Users\sasko\source\repos\MyComic\MyComic.Entities\obj\Debug\netstandard2.1\MyComic.Entities.AssemblyInfoInputs.cache
-C:\Users\sasko\source\repos\MyComic\MyComic.Entities\obj\Debug\netstandard2.1\MyComic.Entities.AssemblyInfo.cs
-C:\Users\sasko\source\repos\MyComic\MyComic.Entities\obj\Debug\netstandard2.1\MyComic.Entities.csproj.CoreCompileInputs.cache
-C:\Users\sasko\source\repos\MyComic\MyComic.Entities\obj\Debug\netstandard2.1\MyComic.Entities.dll
-C:\Users\sasko\source\repos\MyComic\MyComic.Entities\obj\Debug\netstandard2.1\MyComic.Entities.pdb
