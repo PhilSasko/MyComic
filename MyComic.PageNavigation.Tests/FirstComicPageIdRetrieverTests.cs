@@ -8,10 +8,10 @@ using System.Collections.Generic;
 namespace MyComic.PageNavigation.Tests
 {
     [TestFixture]
-    class LastComicPageIdRetrieverTests
+    internal class FirstComicPageIdRetrieverTests
     {
         [Test]
-        public void RetrieveLastComicPageId_WhenThreePages_ReturnsThridPage()
+        public void RetrieveFirstComicPageId_WhenThreePages_ReturnsFirstPage()
         {
             Mock<IComicIssueByIdRetriever> mockComicIssueByIdRetriever = new Mock<IComicIssueByIdRetriever>();
             mockComicIssueByIdRetriever.Setup(cibir => cibir.GetComicIssue(It.IsAny<Guid>())).Returns(new ComicIssue()
@@ -38,12 +38,12 @@ namespace MyComic.PageNavigation.Tests
                     },
                 }
             });
-            ILastComicPageIdRetriever lastComicPageIdRetriever = new LastComicPageIdRetriever(mockComicIssueByIdRetriever.Object);
-            Guid currentComicIssueId = new Guid("075b6e68-9d2f-476f-9e92-1e8e4b870f8e"); 
-            
-            Guid lastComicPageId = lastComicPageIdRetriever.RetrieveLastComicPageId(currentComicIssueId);
+            IFirstComicPageIdRetriever lastComicPageIdRetriever = new FirstComicPageIdRetriever(mockComicIssueByIdRetriever.Object);
+            Guid currentComicIssueId = new Guid("075b6e68-9d2f-476f-9e92-1e8e4b870f8e");
 
-            Assert.That(lastComicPageId, Is.EqualTo(new Guid("926edcd6-6d48-43ac-a0f1-93cb235d0a8d")));
+            Guid firstComicPageId = lastComicPageIdRetriever.RetrieveFirstComicPageId(currentComicIssueId);
+
+            Assert.That(firstComicPageId, Is.EqualTo(new Guid("c0150c76-eab2-4efe-be90-8bd129eed9b0")));
         }
     }
 }

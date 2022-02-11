@@ -13,29 +13,27 @@ namespace MyComic.Presentation.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IDefaultComicPageRetriever _defaultComicPageRetriever;
-        private readonly ILastComicPageNavigator _lastComicPageNavigator;
         private readonly IComicIssueResolver _comicIssueResolver;
         private readonly IComicPageFromIdRetriever _comicPageFromIdRetriever;
         private readonly INextComicPageIdRetriever _nextComicPageIdRetriever;
         private readonly IPreviousComicPageIdRetriever _previousComicPageIdRetriever;
+        private readonly IFirstComicPageIdRetriever _firstComicPageIdRetriever;
         private readonly ILastComicPageIdRetriever _lastComicPageIdRetriever;
 
         public HomeController
             ( ILogger<HomeController> logger
             , IDefaultComicPageRetriever defaultComicPageRetriever
-            , ILastComicPageNavigator lastComicPageNavigator
             , IComicIssueResolver comicIssueResolver
             , IComicPageFromIdRetriever comicPageFromIdRetriever
             , INextComicPageIdRetriever nextComicPageIdRetriever
             , IPreviousComicPageIdRetriever previousComicPageIdRetriever
+            , IFirstComicPageIdRetriever firstComicPageIdRetriever
             , ILastComicPageIdRetriever lastComicPageIdRetriever)
         {
             _logger = logger
                 ?? throw new ArgumentNullException(nameof(logger));
             _defaultComicPageRetriever = defaultComicPageRetriever
                 ?? throw new ArgumentNullException(nameof(defaultComicPageRetriever));
-            _lastComicPageNavigator = lastComicPageNavigator
-                ?? throw new ArgumentNullException(nameof(lastComicPageNavigator));
             _comicIssueResolver = comicIssueResolver
                 ?? throw new ArgumentNullException(nameof(comicIssueResolver));
             _comicPageFromIdRetriever = comicPageFromIdRetriever
@@ -44,6 +42,8 @@ namespace MyComic.Presentation.Controllers
                 ?? throw new ArgumentNullException(nameof(nextComicPageIdRetriever));
             _previousComicPageIdRetriever = previousComicPageIdRetriever
                 ?? throw new ArgumentNullException(nameof(previousComicPageIdRetriever));
+            _firstComicPageIdRetriever = firstComicPageIdRetriever
+                ?? throw new ArgumentNullException(nameof(firstComicPageIdRetriever));
             _lastComicPageIdRetriever = lastComicPageIdRetriever
                 ?? throw new ArgumentNullException(nameof(lastComicPageIdRetriever));
         }
@@ -65,9 +65,10 @@ namespace MyComic.Presentation.Controllers
             return View(comicPageViewModel);
         }
 
-        public IActionResult FirstPage(int issueNumber)
+        public IActionResult FirstPage(Guid issueId)
         {
-            throw new NotImplementedException("Implement the first page button functionality.");
+            Guid firstComicPageId = _firstComicPageIdRetriever.RetrieveFirstComicPageId(currentComicIssueId: issueId);
+            return RedirectToAction("Index", new { PageId = firstComicPageId });
         }
 
         public IActionResult PreviousPage(Guid pageId)

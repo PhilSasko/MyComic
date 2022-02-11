@@ -36,14 +36,13 @@ namespace MyComic.Presentation
             services.AddTransient<IComicPageNameResolver, ComicPageDoubleDigitNumberNameResolver>();
             services.AddTransient<IComicPageBuilder, ComicPageBuilder>();
             services.AddTransient<IDefaultComicPageRetriever, DefaultComicPageRetriever>();
-            services.AddTransient<ILastComicPageNavigator, LastComicPageNavigator>();
-            services.AddTransient<ILastComicPageNumberResolver, LastComicPageNumberResolver>();
             services.AddTransient<IComicIssueResolver, ComicIssueResolver>();
             services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
             services.AddTransient<IComicPageFromIdRetriever, ComicPageFromIdRetriever>();
             services.AddTransient<INextComicPageIdRetriever, NextComicPageIdRetriever>();
             services.AddTransient<IPreviousComicPageIdRetriever, PreviousComicPageIdRetriever>();
             services.AddTransient<ILastComicPageIdRetriever, LastComicPageIdRetriever>();
+            services.AddTransient<IFirstComicPageIdRetriever, FirstComicPageIdRetriever>();
             services.AddTransient<IComicIssueByIdRetriever, ComicIssueByIdRetriever>();
             services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
         }
