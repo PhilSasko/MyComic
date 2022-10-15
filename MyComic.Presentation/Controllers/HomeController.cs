@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Mvc;
 using MyComic.DataAccess.ComicPages;
 using MyComic.Entities.Comic;
 using MyComic.PageNavigation;
 using MyComic.PageProviding;
 using MyComic.Presentation.Models;
+using System.Diagnostics;
 
 namespace MyComic.Presentation.Controllers
 {
@@ -21,7 +20,7 @@ namespace MyComic.Presentation.Controllers
         private readonly IFirstComicPageIdRetriever _firstComicPageIdRetriever;
 
         public HomeController
-            ( ILogger<HomeController> logger
+            (ILogger<HomeController> logger
             , IDefaultComicPageRetriever defaultComicPageRetriever
             , IComicIssueResolver comicIssueResolver
             , IComicPageFromIdRetriever comicPageFromIdRetriever
@@ -79,7 +78,7 @@ namespace MyComic.Presentation.Controllers
 
         public IActionResult NextPage(Guid pageId)
         {
-            Guid nextComicPageId = _nextComicPageIdRetriever.RetrieveNextComicPageId(currentPageId: pageId);            
+            Guid nextComicPageId = _nextComicPageIdRetriever.RetrieveNextComicPageId(currentPageId: pageId);
             return RedirectToAction("Index", new { PageId = nextComicPageId });
         }
 
