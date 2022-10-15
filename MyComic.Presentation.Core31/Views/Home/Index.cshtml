@@ -1,0 +1,10 @@
+﻿@model MyComic.Presentation.Models.ComicPageViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="main-comic-image-content">
+    <partial name="~/Views/Shared/_ComicPageNavigation.cshtml" model="Model" />
+    <partial name="~/Views/Shared/_ComicPageDisplay.cshtml" model="Model.ComicPage" />
+    <partial name="~/Views/Shared/_ComicPageNavigation.cshtml" model="Model" />
+</div>
