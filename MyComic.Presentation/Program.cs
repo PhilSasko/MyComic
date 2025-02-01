@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddTransient<DefaultComicPageRetriever, DefaultComicPageRetriever>();
+builder.Services.AddTransient<IDefaultComicPageRetriever, DefaultComicPageRetriever>();
 builder.Services.AddTransient<IComicIssueResolver, ComicIssueResolver>();
 builder.Services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
 builder.Services.AddTransient<IComicPageFromIdRetriever, ComicPageFromIdRetriever>();

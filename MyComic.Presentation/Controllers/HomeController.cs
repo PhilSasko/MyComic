@@ -10,7 +10,7 @@ namespace MyComic.Presentation.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly DefaultComicPageRetriever _defaultComicPageRetriever;
+        private readonly IDefaultComicPageRetriever _defaultComicPageRetriever;
         private readonly IComicIssueResolver _comicIssueResolver;
         private readonly IComicPageFromIdRetriever _comicPageFromIdRetriever;
         private readonly INextComicPageIdRetriever _nextComicPageIdRetriever;
@@ -20,7 +20,7 @@ namespace MyComic.Presentation.Controllers
 
         public HomeController
             (ILogger<HomeController> logger
-            , DefaultComicPageRetriever defaultComicPageRetriever
+            , IDefaultComicPageRetriever defaultComicPageRetriever
             , IComicIssueResolver comicIssueResolver
             , IComicPageFromIdRetriever comicPageFromIdRetriever
             , INextComicPageIdRetriever nextComicPageIdRetriever
