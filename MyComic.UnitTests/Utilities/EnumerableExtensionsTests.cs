@@ -1,9 +1,10 @@
-﻿using NUnit.Framework;
+﻿using MyComic.Utilities;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyComic.Utilities.Tests
+namespace MyComic.UnitTests.Utilities
 {
     [TestFixture]
     public class EnumerableExtensionsTests
@@ -33,7 +34,7 @@ namespace MyComic.Utilities.Tests
 
         private IEnumerable<MockEntity> GenerateAndGetEntities(int numberOfEntities)
         {
-            for(int i = 1; i <= numberOfEntities; i++)
+            for (int i = 1; i <= numberOfEntities; i++)
             {
                 yield return new MockEntity()
                 {

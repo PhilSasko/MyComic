@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using MyComic.Domain.PageNavigation;
 
-namespace MyComic.PageNavigation.Tests
+namespace MyComic.UnitTests.PageNavigation
 {
     [TestFixture]
     class LastComicPageIdRetrieverTests
@@ -40,8 +40,8 @@ namespace MyComic.PageNavigation.Tests
                 }
             });
             ILastComicPageIdRetriever lastComicPageIdRetriever = new LastComicPageIdRetriever(mockComicIssueByIdRetriever.Object);
-            Guid currentComicIssueId = new Guid("075b6e68-9d2f-476f-9e92-1e8e4b870f8e"); 
-            
+            Guid currentComicIssueId = new Guid("075b6e68-9d2f-476f-9e92-1e8e4b870f8e");
+
             Guid lastComicPageId = lastComicPageIdRetriever.RetrieveLastComicPageId(currentComicIssueId);
 
             Assert.That(lastComicPageId, Is.EqualTo(new Guid("926edcd6-6d48-43ac-a0f1-93cb235d0a8d")));

@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using MyComic.Domain.PageNavigation;
 
-namespace MyComic.PageNavigation.Tests
+namespace MyComic.UnitTests.PageNavigation
 {
     [TestFixture]
     class FirstComicPageIdRetrieverTests
