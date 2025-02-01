@@ -1,11 +1,7 @@
-﻿using MyComic.Entities.Comic;
-using MyComic.PageProviding.DataRetrieval;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using MyComic.Domain.Entities.Comic;
+using MyComic.Domain.PageProviding.DataRetrieval;
 
-namespace MyComic.PageNavigation
+namespace MyComic.Domain.PageNavigation
 {
     public interface IFirstComicPageIdRetriever
     {
@@ -17,7 +13,7 @@ namespace MyComic.PageNavigation
 
         public FirstComicPageIdRetriever(IComicIssueByIdRetriever comicIssueByIdRetriever)
         {
-            _comicIssueByIdRetriever = comicIssueByIdRetriever ?? throw new ArgumentNullException(nameof(comicIssueByIdRetriever));
+            _comicIssueByIdRetriever = comicIssueByIdRetriever;
         }
 
         public Guid RetrieveFirstComicPageId(Guid currentComicIssueId)

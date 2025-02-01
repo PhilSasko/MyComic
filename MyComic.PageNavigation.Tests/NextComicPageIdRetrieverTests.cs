@@ -1,9 +1,10 @@
 ﻿using Moq;
-using MyComic.Entities.Comic;
-using MyComic.PageProviding.DataRetrieval;
+using MyComic.Domain.PageProviding.DataRetrieval;
+using MyComic.Domain.Entities.Comic;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using MyComic.Domain.PageNavigation;
 
 namespace MyComic.PageNavigation.Tests
 {

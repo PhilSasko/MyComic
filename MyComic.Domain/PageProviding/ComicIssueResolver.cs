@@ -1,9 +1,7 @@
-﻿using MyComic.Entities.Comic;
-using MyComic.PageProviding.DataRetrieval;
-using System;
-using System.Collections.Generic;
+﻿using MyComic.Domain.PageProviding.DataRetrieval;
+using MyComic.Domain.Entities.Comic;
 
-namespace MyComic.PageProviding
+namespace MyComic.Domain.PageProviding
 {
     public interface IComicIssueResolver
     {
@@ -16,7 +14,7 @@ namespace MyComic.PageProviding
 
         public ComicIssueResolver(IComicIssuePageRetriever comicIssuePageRetriever)
         {
-            _comicIssuePageRetriever = comicIssuePageRetriever ?? throw new ArgumentNullException(nameof(comicIssuePageRetriever));
+            _comicIssuePageRetriever = comicIssuePageRetriever;
         }
 
         public ComicIssue ResolveComicIssue(int comicIssueNumber)

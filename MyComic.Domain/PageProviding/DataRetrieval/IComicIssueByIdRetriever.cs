@@ -1,7 +1,6 @@
-﻿using MyComic.Entities.Comic;
-using System;
+﻿using MyComic.Domain.Entities.Comic;
 
-namespace MyComic.PageProviding.DataRetrieval
+namespace MyComic.Domain.PageProviding.DataRetrieval
 {
     public interface IComicIssueByIdRetriever
     {

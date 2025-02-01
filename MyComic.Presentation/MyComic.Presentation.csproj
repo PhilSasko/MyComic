@@ -7,13 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyComic.DataAccess.ComicPages\MyComic.DataAccess.ComicPages.csproj" />
-    <ProjectReference Include="..\MyComic.PageProviding\MyComic.PageProviding.csproj" />
-    <ProjectReference Include="..\MyComic.Presentation.Models\MyComic.Presentation.Models.csproj" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
+    <ProjectReference Include="..\MyComic.Domain\MyComic.Domain.csproj" />
   </ItemGroup>
 
 </Project>

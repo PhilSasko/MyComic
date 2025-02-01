@@ -1,9 +1,8 @@
-﻿using MyComic.PageProviding.DataRetrieval;
+﻿using MyComic.Domain.Entities.Comic;
+using MyComic.Domain.PageProviding.DataRetrieval;
 using MyComic.Utilities;
-using System;
-using System.Linq;
 
-namespace MyComic.PageNavigation
+namespace MyComic.Domain.PageNavigation
 {
     public interface IPreviousComicPageIdRetriever
     {
@@ -16,25 +15,21 @@ namespace MyComic.PageNavigation
 
         public PreviousComicPageIdRetriever(IComicIssuePageRetriever comicIssuePageRetriever)
         {
-            _comicIssuePageRetriever = comicIssuePageRetriever ?? throw new ArgumentNullException(nameof(comicIssuePageRetriever));
+            _comicIssuePageRetriever = comicIssuePageRetriever;
         }
 
         public Guid RetrievePreviousComicPageId(Guid pageId)
         {
-            System.Collections.Generic.IEnumerable<Entities.Comic.ComicPage> comicIssue =
+            IEnumerable<ComicPage> comicIssue =
                 _comicIssuePageRetriever.RetrieveComicPagesForIssue(1);
 
-            Entities.Comic.ComicPage currentComicPage = comicIssue.SingleOrDefault(page => page.PageId == pageId);
-
-            if (currentComicPage is null)
-            {
-                throw new ArgumentException($"Unable to find current comic page for {nameof(pageId)}: {pageId}");
-            }
+            ComicPage currentComicPage = comicIssue.SingleOrDefault(page => page.PageId == pageId) 
+                ?? throw new ArgumentException($"Unable to find current comic page for {nameof(pageId)}: {pageId}");
 
             try
             {
-                return comicIssue.TryOffsetBy(page => 
-                    page.PageNumber, currentComicPage.PageNumber, idOffset: -1, out Entities.Comic.ComicPage previousComicPage)
+                return comicIssue.TryOffsetBy(page =>
+                    page.PageNumber, currentComicPage.PageNumber, idOffset: -1, out ComicPage previousComicPage)
                     ? previousComicPage.PageId
                     : currentComicPage.PageId;
             }

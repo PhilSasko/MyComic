@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyComic.PageNavigation\MyComic.PageNavigation.csproj" />
+    <ProjectReference Include="..\MyComic.Domain\MyComic.Domain.csproj" />
   </ItemGroup>
 
 </Project>

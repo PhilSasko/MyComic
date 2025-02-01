@@ -1,17 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyComic.DataAccess.ComicPages;
-using MyComic.Entities.Comic;
-using MyComic.PageNavigation;
-using MyComic.PageProviding;
+using MyComic.Domain.DataAccess;
+using MyComic.Domain.Entities.Comic;
+using MyComic.Domain.PageNavigation;
+using MyComic.Domain.PageProviding;
 using MyComic.Presentation.Models;
-using System.Diagnostics;
 
 namespace MyComic.Presentation.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IDefaultComicPageRetriever _defaultComicPageRetriever;
+        private readonly DefaultComicPageRetriever _defaultComicPageRetriever;
         private readonly IComicIssueResolver _comicIssueResolver;
         private readonly IComicPageFromIdRetriever _comicPageFromIdRetriever;
         private readonly INextComicPageIdRetriever _nextComicPageIdRetriever;
@@ -21,7 +20,7 @@ namespace MyComic.Presentation.Controllers
 
         public HomeController
             (ILogger<HomeController> logger
-            , IDefaultComicPageRetriever defaultComicPageRetriever
+            , DefaultComicPageRetriever defaultComicPageRetriever
             , IComicIssueResolver comicIssueResolver
             , IComicPageFromIdRetriever comicPageFromIdRetriever
             , INextComicPageIdRetriever nextComicPageIdRetriever
@@ -29,22 +28,14 @@ namespace MyComic.Presentation.Controllers
             , ILastComicPageIdRetriever lastComicPageIdRetriever
             , IFirstComicPageIdRetriever firstComicPageIdRetriever)
         {
-            _logger = logger
-                ?? throw new ArgumentNullException(nameof(logger));
-            _defaultComicPageRetriever = defaultComicPageRetriever
-                ?? throw new ArgumentNullException(nameof(defaultComicPageRetriever));
-            _comicIssueResolver = comicIssueResolver
-                ?? throw new ArgumentNullException(nameof(comicIssueResolver));
-            _comicPageFromIdRetriever = comicPageFromIdRetriever
-                ?? throw new ArgumentNullException(nameof(comicPageFromIdRetriever));
-            _nextComicPageIdRetriever = nextComicPageIdRetriever
-                ?? throw new ArgumentNullException(nameof(nextComicPageIdRetriever));
-            _previousComicPageIdRetriever = previousComicPageIdRetriever
-                ?? throw new ArgumentNullException(nameof(previousComicPageIdRetriever));
-            _lastComicPageIdRetriever = lastComicPageIdRetriever
-                ?? throw new ArgumentNullException(nameof(lastComicPageIdRetriever));
-            _firstComicPageIdRetriever = firstComicPageIdRetriever
-                ?? throw new ArgumentNullException(nameof(firstComicPageIdRetriever));
+            _logger = logger;
+            _defaultComicPageRetriever = defaultComicPageRetriever;
+            _comicIssueResolver = comicIssueResolver;
+            _comicPageFromIdRetriever = comicPageFromIdRetriever;
+            _nextComicPageIdRetriever = nextComicPageIdRetriever;
+            _previousComicPageIdRetriever = previousComicPageIdRetriever;
+            _lastComicPageIdRetriever = lastComicPageIdRetriever;
+            _firstComicPageIdRetriever = firstComicPageIdRetriever;
         }
 
         public IActionResult Index(Guid? pageId)

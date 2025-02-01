@@ -1,14 +1,14 @@
-using MyComic.DataAccess.ComicPages;
-using MyComic.PageNavigation;
-using MyComic.PageProviding;
-using MyComic.PageProviding.DataRetrieval;
+using MyComic.Domain.DataAccess;
+using MyComic.Domain.PageNavigation;
+using MyComic.Domain.PageProviding;
+using MyComic.Domain.PageProviding.DataRetrieval;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddTransient<IDefaultComicPageRetriever, DefaultComicPageRetriever>();
+builder.Services.AddTransient<DefaultComicPageRetriever, DefaultComicPageRetriever>();
 builder.Services.AddTransient<IComicIssueResolver, ComicIssueResolver>();
 builder.Services.AddTransient<IComicIssuePageRetriever, ComicIssuePageRetriever>();
 builder.Services.AddTransient<IComicPageFromIdRetriever, ComicPageFromIdRetriever>();

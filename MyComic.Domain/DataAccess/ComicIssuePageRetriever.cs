@@ -1,9 +1,7 @@
-﻿using MyComic.Entities.Comic;
-using MyComic.PageProviding.DataRetrieval;
-using System;
-using System.Collections.Generic;
+﻿using MyComic.Domain.Entities.Comic;
+using MyComic.Domain.PageProviding.DataRetrieval;
 
-namespace MyComic.DataAccess.ComicPages
+namespace MyComic.Domain.DataAccess
 {
     public class ComicIssuePageRetriever : IComicIssuePageRetriever
     {

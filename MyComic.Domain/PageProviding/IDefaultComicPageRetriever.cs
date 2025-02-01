@@ -1,9 +1,7 @@
-﻿using MyComic.Entities.Comic;
-using MyComic.PageProviding.DataRetrieval;
-using System;
-using System.Linq;
+﻿using MyComic.Domain.PageProviding.DataRetrieval;
+using MyComic.Domain.Entities.Comic;
 
-namespace MyComic.PageProviding
+namespace MyComic.Domain.PageProviding
 {
     public interface IDefaultComicPageRetriever
     {
@@ -16,7 +14,7 @@ namespace MyComic.PageProviding
 
         public DefaultComicPageRetriever(IComicIssuePageRetriever comicIssuePageRetriever)
         {
-            _comicIssuePageRetriever = comicIssuePageRetriever ?? throw new ArgumentNullException(nameof(comicIssuePageRetriever));
+            _comicIssuePageRetriever = comicIssuePageRetriever;
         }
 
         public ComicPage RetrieveDefaultComicPage()
