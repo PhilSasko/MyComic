@@ -12,6 +12,7 @@
 *.cache
 /MyComic.Domain/bin/Debug/netstandard2.0
 *.dll
+*.bin
 
 ###########################################################################
 # start copied (modified) from https://gist.github.com/indyfromoz/4109296 #
@@ -99,3 +100,4 @@ _[Ss]cripts
 *.jpg
 *.jpeg
 *.png
+*.pubxml
